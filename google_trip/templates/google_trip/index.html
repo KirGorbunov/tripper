@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="intro_section">
+    <div class="container">
+        <div class="intro">
+            <h2>Use Statistics For Find The Best Places</h2>
+            <a class="base_button" href="#">
+                <span class="base_button_span">SEE ALL PLACES</span>
+            </a>
+        </div>
+        <div class="places">
+            <div class="index_img">
+                <a href="/tourist-attractions/3904/"><img src="/media/index_image/tourist_attraction.jpg" alt="Iguazu Falls"></a>
+            </div>
+            <div class="index_img">
+                <a href="/hotels/4674/"><img src="/media/index_image/hotel.jpg" alt="Burj Al-Arab Hotel"></a>
+            </div>
+            <div class="index_img">
+                <a href="/restaurants/7828/"><img src="/media/index_image/restaurant.jpg" alt="Geranium Restaurants"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="countries">
+    <div class="container">
+        <div class="intro">
+            <h2>Choose A Country</h2>
+        </div>
+        <div class="show-list">
+            <div class="country-navigation">
+                <div class="country-input">
+                    <input type="text" id="search" placeholder="Search for a country...">
+                </div>
+                <ul class="search">
+                    {% for country in countries %}
+                    <li>{{ country.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="country-show">
+                <div class="country-name">
+                    <h2>Afghanistan</h2>
+                </div>
+                <div class="country-category-show">
+                    <div class="country-one-category tourist-attractions">
+                        {% for attr in tourist_attractions %}
+                        {% if attr.photo %}
+                        <div class="one-place">
+                            <div class="name"><a href={% url 'view_attraction' attr.pk %}>{{ attr.name|safe }}</a></div>
+                            <div class="photo"><a href={% url 'view_attraction' attr.pk %}><img src="{{ attr.photo.url }}" alt=""></a></div>
+                            <div class="number_of_review">{{ attr.number_of_review }}</div>
+                            <div class="rating">{{ attr.rating }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="country-one-category hotels">
+                        {% for hotel in hotels %}
+                        {% if hotel.photo %}
+                        <div class="one-place">
+                            <div class="name"><a href={% url 'view_hotel' hotel.pk %}>{{ hotel.name|safe }}</a></div>
+                            <div class="photo"><a href={% url 'view_hotel' hotel.pk %}><img src="{{ hotel.photo.url }}" alt=""></a></div>
+                            <div class="number_of_review">{{ hotel.number_of_review }}</div>
+                            <div class="rating">{{ hotel.rating }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="country-one-category restaurants">
+                        {% for restaurant in restaurants %}
+                        {% if restaurant.photo %}
+                        <div class="one-place">
+                            <div class="name"><a href={% url 'view_restaurant' restaurant.pk %}>{{ restaurant.name|safe }}</a></div>
+                            <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}><img src="{{ restaurant.photo.url }}" alt=""></a></div>
+                            <div class="number_of_review">{{ restaurant.number_of_review }}</div>
+                            <div class="rating">{{ restaurant.rating }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <script src={% static "google_trip/js/index.js" %}></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

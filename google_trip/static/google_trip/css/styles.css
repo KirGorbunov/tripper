@@ -1,0 +1,292 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background-color: white;
+    font-size: 14px;
+    min-height: 100vh;
+}
+
+
+.header {
+    width: 100vw;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid rgb(51, 51, 51);
+}
+
+.header a {
+    color: white;
+}
+
+.header-inner {
+    border-bottom: 1px solid rgb(31, 31, 31);
+    font-size: 50px;
+    padding: 0.5rem 0px;
+}
+
+.menu {
+    height: 64px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation {
+    display: flex;
+}
+
+.navigation li {
+    display: inline-block;
+    letter-spacing: 0.13em;
+    font-weight: 600;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.navigation li a {
+    display: block;
+}
+
+.navigation li:hover {
+    background-color: rgb(31, 31, 31);
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0px auto;
+}
+
+.intro {
+    margin: 60px auto;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: rgb(224, 224, 224);
+    width: 100%;
+    min-height: 88px;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    align-self: center;
+    font-weight: normal;
+}
+
+.country-name h2 {
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.base_button {
+    align-self: center;
+    margin-left: 2rem;
+    border-color: rgb(31, 31, 31);
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgb(31, 31, 31);
+    min-width: 10rem;
+    height: 48px
+}
+
+.base_button:hover {
+    background-color: rgb(31, 31, 31);
+}
+
+.places {
+    display: flex;
+    justify-content: space-between;
+}
+
+.index_img {
+    align-self: center;
+    height: 830px;
+    width: 520px;
+}
+
+.index_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.base_button {
+    min-width: 10rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgb(0, 0, 0);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.base_button_span {
+    color: white;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.show-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.country-navigation {
+    width: 220px;
+    height: 975px;
+    overflow: auto;
+    border: 1px solid rgb(224, 224, 224);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.country-input {
+    width: 180px;
+    height: 50px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+input {
+    border: medium none;
+    width: 100%;
+    height: 3.1rem;
+}
+
+.country-navigation ul {
+    margin-left: 0;
+    padding-left: 1rem;
+}
+
+.country-navigation ul li {
+    list-style-type: none;
+    line-height: 1.1em;
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.country-show {
+    width: 1350px;
+    height: 975px;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.country-category-show {
+    width: 1350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.one-place {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.photo {
+    height: 250px;
+    width: 400px;
+    margin: 0 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.photo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.country-one-category a {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.category-show {
+    display: flex;
+    justify-content: left;
+    margin: 30px 0;
+}
+
+.category-show a {
+    color: black;
+}
+
+.country-navigation ul li {
+    cursor: pointer;
+}
+
+.name a {
+    padding-bottom: 0.75rem;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.name a:hover {
+    text-decoration: underline;
+}
+
+
+.search li.hide {
+    display: none;
+}
+
+
+/*.highcharts-figure {*/
+/*    min-width: 1440px;*/
+/*    min-height: 3280px;*/
+/*}*/
+
+
+/*     FOR GOOGLE MAPS      */
+
+/*#map {*/
+/*  height: 100%;*/
+/*}*/
+
+/*!**/
+/* * Optional: Makes the sample page fill the window.*/
+/* *!*/
+/*html,*/
+/*body {*/
+/*  height: 100%;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/

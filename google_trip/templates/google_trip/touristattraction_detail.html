@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="attr_detail">
+    <div class="container">
+        <div class="country-one-category">
+            <div class="name">{{ object.name|safe }} ({{ object.country }})</div>
+            {% if object.photo %}
+            <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
+            {% endif %}
+            <div class="number_of_review">{{ object.number_of_review }}</div>
+            <div class="rating">{{ object.rating }}</div>
+
+            <div id="map" style="width: 600px; height: 400px"></div>
+
+            <figure class="highcharts-figure">
+                <div id="container" data-json="{{ data }}" data-json-current="{{ data_current_object }}"></div>
+                <p class="highcharts-description">
+                    Chart showing all tourist attractions with rating > 4
+                </p>
+            </figure>
+
+
+            <script src="https://api-maps.yandex.ru/2.1/?apikey=ea8ed546-bf5b-4f2e-93ae-2f84155eb151&lang=en_US" type="text/javascript">
+    </script>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <script src="https://code.highcharts.com/modules/export-data.js"></script>
+            <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+            <script src={% static "google_trip/js/highcharts.js" %}></script>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

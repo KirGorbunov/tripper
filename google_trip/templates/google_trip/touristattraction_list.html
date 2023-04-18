@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="countries">
+    <div class="container">
+        <div class="intro">
+            <h2>Choose A Country</h2>
+        </div>
+        <div class="show-list">
+            <div class="country-navigation">
+                <div class="country-input">
+                    <input type="text" placeholder="Search for a country...">
+                </div>
+                <ul>
+                    {% for country in countries %}
+                    <li>{{ country.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="country-show">
+                <div class="country-name">
+                    <h2>World</h2>
+                </div>
+                {% for item in tourist_attractions %}
+                <div class="category-show">
+                    {% if item.photo %}
+                    <div class="photo">
+                        <img src="{{ item.photo.url }}" alt="">
+                    </div>
+                    {% endif %}
+                    <div class="place-information">
+                        <div class="name">
+                            <a href={% url 'view_attraction' item.pk %}>{{ item.name|safe }}</a>
+                        </div>
+                        <div class="number_of_review">
+                            number_of_review: {{ item.number_of_review }}
+                        </div>
+                        <div class="rating">
+                            rating: {{ item.rating }}
+                        </div>
+                        <div class="rating">
+                            {{ item.country.name }} {{ item.state.name}} {{ item.region.name }} {{ item.county.name }}
+                            {{ item.city.name }} {{ item.town.name }} {{ item.village.name }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
