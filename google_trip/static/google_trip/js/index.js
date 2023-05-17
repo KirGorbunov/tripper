@@ -89,9 +89,9 @@ window.addEventListener("load", function () {
                 photoTouristAttractions[i].src = TouristAttractionsJSON.results[i].photo;
                 photoHotels[i].src = HotelsJSON.results[i].photo;
                 photoRestaurants[i].src = RestaurantsJSON.results[i].photo;
-                numberOfReviewTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].y;
-                numberOfReviewHotels[i].innerText = HotelsJSON.results[i].y;
-                numberOfReviewRestaurants[i].innerText = RestaurantsJSON.results[i].y;
+                numberOfReviewTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].y+' reviews';
+                numberOfReviewHotels[i].innerText = HotelsJSON.results[i].y+' reviews';
+                numberOfReviewRestaurants[i].innerText = RestaurantsJSON.results[i].y+' reviews';
                 ratingTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].x;
                 ratingHotels[i].innerText = HotelsJSON.results[i].x;
                 ratingRestaurants[i].innerText = RestaurantsJSON.results[i].x;

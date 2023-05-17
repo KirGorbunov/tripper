@@ -223,7 +223,7 @@ input {
 .photo {
     height: 250px;
     width: 400px;
-    margin: 0 20px;
+    margin: 0 20px 5px;
 }
 
 .photo img {
@@ -307,6 +307,7 @@ input {
   background-color: black;
   height: 20px;
 }
+
 
 
 

@@ -12,13 +12,15 @@
         </div>
         <div class="places">
             <div class="index_img">
-                <a href="/tourist-attractions/3904/"><img src="/media/index_image/tourist_attraction.jpg" alt="Iguazu Falls"></a>
+                <a href="/tourist-attractions/3904/"><img src="/media/index_image/tourist_attraction.jpg"
+                                                          alt="Iguazu Falls"></a>
             </div>
             <div class="index_img">
                 <a href="/hotels/4674/"><img src="/media/index_image/hotel.jpg" alt="Burj Al-Arab Hotel"></a>
             </div>
             <div class="index_img">
-                <a href="/restaurants/7828/"><img src="/media/index_image/restaurant.jpg" alt="Geranium Restaurants"></a>
+                <a href="/restaurants/7828/"><img src="/media/index_image/restaurant.jpg"
+                                                  alt="Geranium Restaurants"></a>
             </div>
         </div>
     </div>
@@ -50,8 +52,8 @@
                         {% if attr.photo %}
                         <div class="one-place">
                             <div class="name"><a href={% url 'view_attraction' attr.pk %}>{{ attr.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_attraction' attr.pk %}><img src="{{ attr.photo.url }}" alt=""></a></div>
-                            <div class="number_of_review">{{ attr.number_of_review }}</div>
+                            <div class="photo"><a href={% url 'view_attraction' attr.pk %}><img
+                                    src="{{ attr.photo.url }}" alt=""></a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -60,9 +62,13 @@
                                 </div>
                                 <div class="rating__value">{{ attr.rating }}</div>
                             </div>
+                            <div class="number_of_review">{{ attr.number_of_review }} reviews</div>
                         </div>
                         {% endif %}
                         {% endfor %}
+                        <a class="base_button" href="#">
+                            <span class="base_button_span choose_button">See all tourist attractions</span>
+                        </a>
                     </div>
                     <div class="country-one-category hotels">
                         <h3>Hotels</h3>
@@ -70,8 +76,8 @@
                         {% if hotel.photo %}
                         <div class="one-place">
                             <div class="name"><a href={% url 'view_hotel' hotel.pk %}>{{ hotel.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_hotel' hotel.pk %}><img src="{{ hotel.photo.url }}" alt=""></a></div>
-                            <div class="number_of_review">{{ hotel.number_of_review }}</div>
+                            <div class="photo"><a href={% url 'view_hotel' hotel.pk %}><img src="{{ hotel.photo.url }}"
+                                                                                            alt=""></a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -80,6 +86,7 @@
                                 </div>
                                 <div class="rating__value">{{ hotel.rating }}</div>
                             </div>
+                            <div class="number_of_review">{{ hotel.number_of_review }} reviews</div>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -89,9 +96,10 @@
                         {% for restaurant in restaurants %}
                         {% if restaurant.photo %}
                         <div class="one-place">
-                            <div class="name"><a href={% url 'view_restaurant' restaurant.pk %}>{{ restaurant.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}><img src="{{ restaurant.photo.url }}" alt=""></a></div>
-                            <div class="number_of_review">{{ restaurant.number_of_review }}</div>
+                            <div class="name"><a href={% url 'view_restaurant' restaurant.pk %}>{{ restaurant.name|safe
+                                }}</a></div>
+                            <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}><img
+                                    src="{{ restaurant.photo.url }}" alt=""></a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -100,12 +108,15 @@
                                 </div>
                                 <div class="rating__value">{{ restaurant.rating }}</div>
                             </div>
+                            <div class="number_of_review">{{ restaurant.number_of_review }} reviews</div>
                         </div>
                         {% endif %}
                         {% endfor %}
                     </div>
-                    <script src={% static "google_trip/js/index.js" %}></script>
-                    <script src={% static "google_trip/js/rating.js" %}></script>
+                    <script src={% static
+                    "google_trip/js/index.js" %}></script>
+                    <script src={% static
+                    "google_trip/js/rating.js" %}></script>
                 </div>
             </div>
         </div>
