@@ -45,6 +45,7 @@
                 </div>
                 <div class="country-category-show">
                     <div class="country-one-category tourist-attractions">
+                        <h3>Tourist attractions</h3>
                         {% for attr in tourist_attractions %}
                         {% if attr.photo %}
                         <div class="one-place">
@@ -57,6 +58,7 @@
                         {% endfor %}
                     </div>
                     <div class="country-one-category hotels">
+                        <h3>Hotels</h3>
                         {% for hotel in hotels %}
                         {% if hotel.photo %}
                         <div class="one-place">
@@ -69,6 +71,7 @@
                         {% endfor %}
                     </div>
                     <div class="country-one-category restaurants">
+                        <h3>Restaurants</h3>
                         {% for restaurant in restaurants %}
                         {% if restaurant.photo %}
                         <div class="one-place">

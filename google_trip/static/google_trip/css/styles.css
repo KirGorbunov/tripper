@@ -98,9 +98,18 @@ h2 {
     font-weight: normal;
 }
 
+h3 {
+    text-align: center;
+    align-self: center;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 15px;
+}
+
 .country-name h2 {
     font-weight: 600;
     margin-bottom: 0px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 0 30% 0 30%;
 }
 
 .base_button {
@@ -159,7 +168,7 @@ h2 {
 
 .country-navigation {
     width: 220px;
-    height: 975px;
+    height: 1050px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
     display: flex;
@@ -194,7 +203,6 @@ input {
 
 .country-show {
     width: 1350px;
-    height: 975px;
     border: 1px solid rgb(224, 224, 224);
 }
 

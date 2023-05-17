@@ -84,20 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         series: [
             {
-                name: 'Other objects',
-                marker: {
-                    symbol: 'circle'
-                },
-                data: jsonData,
-                // turboThreshold: 0,
-            },
-            {
                 name: 'Selected object',
                 marker: {
                     symbol: 'triangle'
                 },
                 data: [currentData],
                 color: 'red',
+            },
+            {
+                name: 'Other objects',
+                marker: {
+                    symbol: 'circle'
+                },
+                data: jsonData,
+                turboThreshold: 10000,
             },
         ]
     });
