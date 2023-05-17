@@ -36,9 +36,14 @@
                             number_of_review: {{ item.number_of_review }}
                         </div>
                         <div class="rating">
-                            rating: {{ item.rating }}
+                            <div class="rating__item">★</div>
+                            <div class="rating__body">
+                                <div class="rating__active"></div>
+                                <div class="rating__items"></div>
+                            </div>
+                            <div class="rating__value">{{ item.rating }}</div>
                         </div>
-                        <div class="rating">
+                        <div class="info">
                             {{ item.country.name }} {{ item.state.name}} {{ item.region.name }} {{ item.county.name }}
                             {{ item.city.name }} {{ item.town.name }} {{ item.village.name }}
                         </div>

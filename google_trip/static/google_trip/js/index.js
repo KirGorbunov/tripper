@@ -40,9 +40,9 @@ window.addEventListener("load", function () {
     const numberOfReviewTouristAttractions = document.querySelectorAll('.tourist-attractions .number_of_review');
     const numberOfReviewHotels = document.querySelectorAll('.hotels .number_of_review');
     const numberOfReviewRestaurants = document.querySelectorAll('.restaurants .number_of_review');
-    const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating');
-    const ratingHotels = document.querySelectorAll('.hotels .rating');
-    const ratingRestaurants = document.querySelectorAll('.restaurants .rating');
+    const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating__value');
+    const ratingHotels = document.querySelectorAll('.hotels .rating__value');
+    const ratingRestaurants = document.querySelectorAll('.restaurants .rating__value');
 
     const linksTouristAttractions = document.querySelectorAll('.tourist-attractions a');
     const linksHotels = document.querySelectorAll('.hotels a');
@@ -104,5 +104,6 @@ window.addEventListener("load", function () {
                 linksRestaurants[i*2+1].href = '/restaurants/'+RestaurantsJSON.results[i].id;
             }
         });
+    initRatings("./rating.js");
     });
 })

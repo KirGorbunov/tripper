@@ -52,7 +52,14 @@
                             <div class="name"><a href={% url 'view_attraction' attr.pk %}>{{ attr.name|safe }}</a></div>
                             <div class="photo"><a href={% url 'view_attraction' attr.pk %}><img src="{{ attr.photo.url }}" alt=""></a></div>
                             <div class="number_of_review">{{ attr.number_of_review }}</div>
-                            <div class="rating">{{ attr.rating }}</div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value">{{ attr.rating }}</div>
+                            </div>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -65,7 +72,14 @@
                             <div class="name"><a href={% url 'view_hotel' hotel.pk %}>{{ hotel.name|safe }}</a></div>
                             <div class="photo"><a href={% url 'view_hotel' hotel.pk %}><img src="{{ hotel.photo.url }}" alt=""></a></div>
                             <div class="number_of_review">{{ hotel.number_of_review }}</div>
-                            <div class="rating">{{ hotel.rating }}</div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value">{{ hotel.rating }}</div>
+                            </div>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -78,12 +92,20 @@
                             <div class="name"><a href={% url 'view_restaurant' restaurant.pk %}>{{ restaurant.name|safe }}</a></div>
                             <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}><img src="{{ restaurant.photo.url }}" alt=""></a></div>
                             <div class="number_of_review">{{ restaurant.number_of_review }}</div>
-                            <div class="rating">{{ restaurant.rating }}</div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value">{{ restaurant.rating }}</div>
+                            </div>
                         </div>
                         {% endif %}
                         {% endfor %}
                     </div>
                     <script src={% static "google_trip/js/index.js" %}></script>
+                    <script src={% static "google_trip/js/rating.js" %}></script>
                 </div>
             </div>
         </div>

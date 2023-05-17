@@ -12,7 +12,14 @@
             <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
             {% endif %}
             <div class="number_of_review">{{ object.number_of_review }}</div>
-            <div class="rating">{{ object.rating }}</div>
+            <div class="rating">
+                <div class="rating__item">★</div>
+                <div class="rating__body">
+                    <div class="rating__active"></div>
+                    <div class="rating__items"></div>
+                </div>
+                <div class="rating__value">{{ object.rating }}</div>
+            </div>
 
             <div id="map" style="width: 600px; height: 400px"></div>
 
@@ -32,6 +39,7 @@
             <script src="https://code.highcharts.com/modules/export-data.js"></script>
             <script src="https://code.highcharts.com/modules/accessibility.js"></script>
             <script src={% static "google_trip/js/highcharts.js" %}></script>
+            <script src={% static "google_trip/js/rating.js" %}></script>
         </div>
     </div>
 </section>
