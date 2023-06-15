@@ -1,19 +1,22 @@
-let xhr = new XMLHttpRequest();
-
-xhr.open('GET', 'http://127.0.0.1:8001/api/v1/tourist-attractions/?limit=1000', false);
-
-try {
-  xhr.send();
-  if (xhr.status != 200) {
-    alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-  } else {
-    var jsonData = JSON.parse(xhr.response);
-  }
-} catch(err) {
-  alert("Запрос не удался");
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+    constructChart('tourist-attractions');
+});
+
+
+function constructChart(type) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:8001/api/v1/' + type + '/?limit=1000', false);
+
+    try {
+        xhr.send();
+        if (xhr.status != 200) {
+            alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
+        } else {
+            var jsonData = JSON.parse(xhr.response);
+        }
+    } catch (err) {
+        alert("Запрос не удался");
+    }
 
     Highcharts.chart('container', {
         chart: {
@@ -36,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         title: {
-            text: 'Popularity and rating of tourist attractions'
+            text: 'Popularity and rating of ' + type
         },
 
         tooltip: {
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 point: {
                     events: {
                         click: function () {
-                            window.open('../tourist-attractions/'+this.id);
+                            window.open('../'+ type + '/' + this.id);
                         }
                     }
                 }
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         series: [
             {
-                name: 'tourist attractions',
+                name: type,
                 marker: {
                     symbol: 'circle',
                     radius: 3,
@@ -69,5 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: jsonData.results,
             }
         ]
+    })
+}
+
+
+window.addEventListener("load", function () {
+    const tourist_attraction_button = document.querySelector('.index_img.tourist_attractions_index_image');
+    const hotels_button = document.querySelector('.index_img.hotels_index_image');
+    const restaurants_attraction_button = document.querySelector('.index_img.restaurants_index_image');
+
+    tourist_attraction_button.addEventListener('click', () => {
+        constructChart('tourist-attractions');
+    });
+    hotels_button.addEventListener('click', () => {
+        constructChart('hotels');
+    });
+    restaurants_attraction_button.addEventListener('click', () => {
+        constructChart('restaurants');
     });
 });
+
+
+
+
