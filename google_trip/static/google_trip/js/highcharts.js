@@ -26,7 +26,7 @@ try {
   } else {
     var jsonData = JSON.parse(xhr.response);
   }
-} catch(err) { // для отлова ошибок используем конструкцию try...catch вместо onerror
+} catch(err) { // для отлова ошибок используе000м конструкцию try...catch вместо onerror
   alert("Запрос не удался");
 }
 

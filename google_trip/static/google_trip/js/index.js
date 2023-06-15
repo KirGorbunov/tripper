@@ -27,7 +27,6 @@ function insertMark(countryName, pos, len) {
 }
 
 
-
 window.addEventListener("load", function () {
     const country = document.querySelector('.country-name h2');
     const countriesForChoice = document.querySelectorAll('.country-navigation ul li');

@@ -10,17 +10,23 @@
                 <span class="base_button_span">SEE ALL PLACES</span>
             </a>
         </div>
-        <div class="places">
-            <div class="index_img">
-                <a href="/tourist-attractions/3904/"><img src="/media/index_image/tourist_attraction.jpg" alt="Iguazu Falls"></a>
-            </div>
-            <div class="index_img">
-                <a href="/hotels/4674/"><img src="/media/index_image/hotel.jpg" alt="Burj Al-Arab Hotel"></a>
-            </div>
-            <div class="index_img">
-                <a href="/restaurants/7828/"><img src="/media/index_image/restaurant.jpg" alt="Geranium Restaurants"></a>
-            </div>
-        </div>
+<!--        <div class="places">-->
+<!--            <div class="index_img">-->
+<!--                <a href="/tourist-attractions/3904/"><img src="/media/index_image/tourist_attraction.jpg" alt="Iguazu Falls"></a>-->
+<!--            </div>-->
+<!--            <div class="index_img">-->
+<!--                <a href="/hotels/4674/"><img src="/media/index_image/hotel.jpg" alt="Burj Al-Arab Hotel"></a>-->
+<!--            </div>-->
+<!--            <div class="index_img">-->
+<!--                <a href="/restaurants/7828/"><img src="/media/index_image/restaurant.jpg" alt="Geranium Restaurants"></a>-->
+<!--            </div>-->
+<!--        </div>-->
+        <figure class="highcharts-figure">
+            <div id="container" data-json="{{ data }}" data-json-current="{{ data_current_object }}"></div>
+            <p class="highcharts-description">
+                Chart showing 1000 most popular tourist attractions with rating > 4
+            </p>
+        </figure>
     </div>
 </section>
 <section class="countries">
@@ -115,9 +121,16 @@
                     </div>
                     <script src={% static "google_trip/js/index.js" %}></script>
                     <script src={% static "google_trip/js/rating.js" %}></script>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+                    <script src={% static "google_trip/js/highcharts_main.js" %}></script>
                 </div>
             </div>
         </div>
     </div>
+
 </section>
 {% endblock %}
