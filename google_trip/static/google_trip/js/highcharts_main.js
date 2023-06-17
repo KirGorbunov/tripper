@@ -18,6 +18,24 @@ function constructChart(type) {
         alert("Запрос не удался");
     }
 
+    let used = [];
+    let newData = [];
+    console.log(jsonData.results.length)
+
+
+    for (let i = 0; i < jsonData.results.length; i++) {
+        let countryCurrentId = jsonData.results[i].country
+        if (!used.includes(countryCurrentId)) {
+            used.push(countryCurrentId);
+            let obj_data = jsonData.results.filter((item) => item.country === countryCurrentId);
+            let obj = {
+                name: countryCurrentId,
+                data: obj_data
+            };
+            newData.push(obj);
+        };
+    };
+
     Highcharts.chart('container', {
         chart: {
             type: 'scatter',
@@ -43,7 +61,7 @@ function constructChart(type) {
         },
 
         tooltip: {
-            headerFormat: '',
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
             pointFormat: '<a href="{point.url}"><span style="color:{point.color}">{point.name}<br/>Rating: {point.x}<br/>Reports: {point.y}</span><br/></a>'
         },
 
@@ -62,16 +80,7 @@ function constructChart(type) {
             }
         },
 
-        series: [
-            {
-                name: type,
-                marker: {
-                    symbol: 'circle',
-                    radius: 3,
-                },
-                data: jsonData.results,
-            }
-        ]
+        series: newData
     })
 }
 
