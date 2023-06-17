@@ -4,9 +4,31 @@ from rest_framework import generics
 from django.views.generic import ListView, DetailView
 from .models import *
 from .serializers import TouristAttractionSerializer, RestaurantSerializer, HotelSerializer
+from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 
+
+class TouristAttractionsFilter(filters.FilterSet):
+    rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
+    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+    class Meta:
+        model = TouristAttraction
+        fields = ['country__name', 'rating']
+
+class HotelFilter(filters.FilterSet):
+    rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
+    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+    class Meta:
+        model = Hotel
+        fields = ['country__name', 'rating']
+
+class RestaurantFilter(filters.FilterSet):
+    rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
+    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+    class Meta:
+        model = Restaurant
+        fields = ['country__name', 'rating']
 
 class Home(ListView):
     model = Country
@@ -70,8 +92,7 @@ class ViewHotel(DetailView):
 class APITouristAttractionsList(generics.ListCreateAPIView):
     queryset = TouristAttraction.objects.all().order_by('-number_of_review')
     serializer_class = TouristAttractionSerializer
-    filter_backends = [DjangoFilterBackend,]
-    filterset_fields = ('country__name',)
+    filterset_class = TouristAttractionsFilter
     # def get_queryset(self):
     #     country = self.request.query_params.get('country')
     #     if country:
@@ -84,12 +105,10 @@ class APITouristAttractionsList(generics.ListCreateAPIView):
 class APIRestaurantsList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.all().order_by('-number_of_review')
     serializer_class = RestaurantSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('country__name',)
+    filterset_class = RestaurantFilter
 
 
 class APIHotelsList(generics.ListCreateAPIView):
     queryset = Hotel.objects.all().order_by('-number_of_review')
     serializer_class = HotelSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('country__name',)
+    filterset_class = HotelFilter
