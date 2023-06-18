@@ -12,6 +12,8 @@ function getURL() {
     return URL;
 }
 
+console.log(getURL())
+
 currentId = parseInt(window.location.pathname.match(/\d+/));
 console.log(currentId)
 
@@ -26,7 +28,7 @@ try {
   } else {
     var jsonData = JSON.parse(xhr.response);
   }
-} catch(err) { // для отлова ошибок используе000м конструкцию try...catch вместо onerror
+} catch(err) {
   alert("Запрос не удался");
 }
 

@@ -24,10 +24,10 @@ function constructChart(type) {
 
 
     for (let i = 0; i < jsonData.results.length; i++) {
-        let countryCurrentId = jsonData.results[i].country
+        let countryCurrentId = jsonData.results[i].country_name
         if (!used.includes(countryCurrentId)) {
             used.push(countryCurrentId);
-            let obj_data = jsonData.results.filter((item) => item.country === countryCurrentId);
+            let obj_data = jsonData.results.filter((item) => item.country_name === countryCurrentId);
             let obj = {
                 name: countryCurrentId,
                 data: obj_data
