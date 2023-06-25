@@ -82,7 +82,7 @@ html, body {
 }
 
 .intro {
-    margin: 60px auto;
+    margin: 20px auto;
     border-width: 1px 0px;
     border-style: solid;
     border-color: rgb(224, 224, 224);
@@ -128,18 +128,26 @@ h3 {
 }
 
 .places {
+    margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .index_img {
     align-self: center;
-    height: 200px;
-    width: 520px;
+    height: 100px;
+    width: 100px;
+    margin-left: 50px;
+    text-align: center;
+}
+
+.index_img:hover {
+    color: blue;
 }
 
 .index_img img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover;
     object-position: 0 0;

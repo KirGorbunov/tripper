@@ -6,27 +6,10 @@
     <div class="container">
         <div class="intro">
             <h2>Use Statistics For Find The Best Places</h2>
-            <a class="base_button" href="#">
+            <a class="base_button" href="#main-chart">
                 <span class="base_button_span">SEE ALL PLACES</span>
             </a>
         </div>
-        <div class="places">
-            <div class="index_img tourist_attractions_index_image">
-                <img src="/media/index_image/tourist_attraction.jpg" alt="Iguazu Falls">
-            </div>
-            <div class="index_img hotels_index_image">
-                <img src="/media/index_image/hotel.jpg" alt="Burj Al-Arab Hotel">
-            </div>
-            <div class="index_img restaurants_index_image">
-                <img src="/media/index_image/restaurant.jpg" alt="Geranium Restaurants">
-            </div>
-        </div>
-        <figure class="highcharts-figure">
-            <div id="container" data-json="{{ data }}" data-json-current="{{ data_current_object }}"></div>
-            <p class="highcharts-description">
-                Chart showing 1000 most popular places with rating > 4
-            </p>
-        </figure>
     </div>
 </section>
 <section class="countries">
@@ -132,5 +115,32 @@
         </div>
     </div>
 
+</section>
+<section class="chart" id="main-chart">
+    <div class="container">
+        <div class="intro">
+            <h2>Choose A Type</h2>
+        </div>
+        <div class="places">
+            <div class="index_img tourist_attractions_index_image">
+                <img src="/media/index_image/tourist_attraction.png" alt="tourist attractions">
+                <span class="icon-label">Tourist attractions</span>
+            </div>
+            <div class="index_img hotels_index_image">
+                <img src="/media/index_image/hotel.png" alt="hotels">
+                <span class="icon-label">Hotels</span>
+            </div>
+            <div class="index_img restaurants_index_image">
+                <img src="/media/index_image/restaurant.png" alt="restaurants">
+                <span class="icon-label">Restaurant</span>
+            </div>
+        </div>
+        <figure class="highcharts-figure">
+            <div id="container" data-json="{{ data }}" data-json-current="{{ data_current_object }}"></div>
+            <p class="highcharts-description">
+                Chart showing 1000 most popular places with rating > 4
+            </p>
+    </figure>
+    </div>
 </section>
 {% endblock %}
