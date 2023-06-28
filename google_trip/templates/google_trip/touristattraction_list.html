@@ -9,9 +9,9 @@
         <div class="show-list">
             <div class="country-navigation">
                 <div class="country-input">
-                    <input type="text" placeholder="Search for a country...">
+                    <input type="text" id="search" placeholder="Search for a country...">
                 </div>
-                <ul>
+                <ul class="search">
                     {% for country in countries %}
                     <li>{{ country.name }}</li>
                     {% endfor %}

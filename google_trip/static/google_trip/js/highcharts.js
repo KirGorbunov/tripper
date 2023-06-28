@@ -34,11 +34,13 @@ try {
 
 let result = jsonData.filter((item) => item.id === currentId);
 let currentData = result[0];
-console.log(currentData)
+console.log(currentData.x)
+console.log(Math.max(currentData.x, 4))
 
 jsonData = jsonData.filter((item) => item.id != currentId & item.country_id === currentData.country_id);
 
 document.addEventListener('DOMContentLoaded', () => {
+
 
     Highcharts.chart('container', {
         chart: {
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: {
                 text: 'Rating'
             },
-            min: 4
+            min: Math.min(currentData.x, 4)
         },
 
         yAxis: {
@@ -71,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plotOptions: {
             series: {
-                pointStart: 4
+                pointStart: Math.min(currentData.x, 4)
             },
             scatter: {
                 point: {

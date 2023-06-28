@@ -186,9 +186,14 @@ h3 {
 
 
 .country-input {
+    position: absolute;
     width: 180px;
     height: 50px;
     border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.search {
+    margin-top: 55px;
 }
 
 input {
