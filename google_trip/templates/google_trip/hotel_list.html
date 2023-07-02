@@ -46,8 +46,34 @@
                             <div class="rating__value">{{ item.rating }}</div>
                         </div>
                         <div class="info">
-                            {{ item.country.name }} {{ item.state.name}} {{ item.region.name }} {{ item.county.name }}
-                            {{ item.city.name }} {{ item.town.name }} {{ item.village.name }}
+                            {% if item.country.name %}
+                                Country: {{ item.country.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.state.name %}
+                                State: {{ item.state.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.region.name %}
+                                Region: {{ item.region.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.county.name %}
+                                County: {{ item.county.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.city.name %}
+                                City: {{ item.city.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.town.name %}
+                                Town: {{ item.town.name }}
+                                <br>
+                            {% endif %}
+                            {% if item.village.name %}
+                                Village: {{ item.village.name }}
+                                <br>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

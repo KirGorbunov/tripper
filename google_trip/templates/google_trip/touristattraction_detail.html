@@ -20,7 +20,36 @@
                 </div>
                 <div class="rating__value">{{ object.rating }}</div>
             </div>
-
+            <div class="info">
+                {% if object.country.name %}
+                Country: {{ object.country.name }}
+                <br>
+                {% endif %}
+                {% if object.state.name %}
+                State: {{ object.state.name }}
+                <br>
+                {% endif %}
+                {% if object.region.name %}
+                Region: {{ object.region.name }}
+                <br>
+                {% endif %}
+                {% if object.county.name %}
+                County: {{ object.county.name }}
+                <br>
+                {% endif %}
+                {% if object.city.name %}
+                City: {{ object.city.name }}
+                <br>
+                {% endif %}
+                {% if object.town.name %}
+                Town: {{ object.town.name }}
+                <br>
+                {% endif %}
+                {% if object.village.name %}
+                Village: {{ object.village.name }}
+                <br>
+                {% endif %}
+            </div>
             <div id="map" style="width: 600px; height: 400px"></div>
 
             <figure class="highcharts-figure">
