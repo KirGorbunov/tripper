@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="countries">
+    <div class="container">
+<!--        <div class="intro">-->
+<!--            <h2>Geo Name</h2>-->
+<!--        </div>-->
+        <div class="show-list">
+            <div class="address-show">
+                <span class="country-name"></span>
+                <span class="state-name"></span>
+                <span class="region-name"></span>
+                <span class="county-name"></span>
+                <span class="city-name"></span>
+                <span class="town-name"></span>
+                <span class="village-name"></span>
+                <div class="country-category-show">
+                    <div class="country-one-category tourist-attractions">
+                        <h3>Tourist attractions</h3>
+                        {% for attr in '123'|make_list %}
+                        <div class="one-place">
+                            <div class="name"><a href=></a></div>
+                            <div class="photo"><a href=><img src="" alt=""></a></div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value"></div>
+                            </div>
+                            <div class="number_of_review"> reviews</div>
+                        </div>
+                        {% endfor %}
+                        <a class="base_button choose_button" href="#">
+                            <span class="base_button_span">SEE ALL TOURIST ATTRACTIONS</span>
+                        </a>
+                    </div>
+                    <div class="country-one-category hotels">
+                        <h3>Hotels</h3>
+                        {% for attr in '123'|make_list %}
+                        <div class="one-place">
+                            <div class="name"><a href=></a></div>
+                            <div class="photo"><a href=><img src="" alt=""></a></div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value"></div>
+                            </div>
+                            <div class="number_of_review"> reviews</div>
+                        </div>
+                        {% endfor %}
+                        <a class="base_button choose_button" href="#">
+                            <span class="base_button_span">SEE ALL HOTELS</span>
+                        </a>
+                    </div>
+                    <div class="country-one-category restaurants">
+                        <h3>Restaurants</h3>
+                        {% for attr in '123'|make_list %}
+                        <div class="one-place">
+                            <div class="name"><a href=></a></div>
+                            <div class="photo"><a href=><img src="" alt=""></a></div>
+                            <div class="rating">
+                                <div class="rating__item">★</div>
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items"></div>
+                                </div>
+                                <div class="rating__value"></div>
+                            </div>
+                            <div class="number_of_review"> reviews</div>
+                        </div>
+                        {% endfor %}
+                        <a class="base_button choose_button" href="#">
+                            <span class="base_button_span">SEE ALL RESTAURANTS</span>
+                        </a>
+                    </div>
+                    <script src={% static "google_trip/js/geo.js" %}></script>
+                    <script src={% static "google_trip/js/rating.js" %}></script>
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+                    <script src={% static "google_trip/js/highcharts_main.js" %}></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="chart" id="main-chart">
+    <div class="container">
+        <div class="intro">
+            <h2>Choose A Type</h2>
+        </div>
+        <div class="places">
+            <div class="index_img tourist_attractions_index_image">
+                <img src="/media/index_image/tourist_attraction.png" alt="tourist attractions">
+                <span class="icon-label">Tourist attractions</span>
+            </div>
+            <div class="index_img hotels_index_image">
+                <img src="/media/index_image/hotel.png" alt="hotels">
+                <span class="icon-label">Hotels</span>
+            </div>
+            <div class="index_img restaurants_index_image">
+                <img src="/media/index_image/restaurant.png" alt="restaurants">
+                <span class="icon-label">Restaurant</span>
+            </div>
+        </div>
+        <figure class="highcharts-figure">
+            <div id="container" data-json="{{ data }}" data-json-current="{{ data_current_object }}"></div>
+            <p class="highcharts-description">
+                Chart showing 1000 most popular places with rating > 4
+            </p>
+    </figure>
+    </div>
+</section>
+{% endblock %}

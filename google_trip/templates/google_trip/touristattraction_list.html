@@ -45,32 +45,32 @@
                         </div>
                         <div class="info">
                             {% if item.country.name %}
-                                Country: {{ item.country.name }}
-                                <br>
+                            Country: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}>{{ item.country.name }}</a>
+                            <br>
                             {% endif %}
                             {% if item.state.name %}
-                                State: {{ item.state.name }}
-                                <br>
+                            State: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&state__name={{ item.state.name|urlencode }}>{{ item.state.name }}</a>
+                            <br>
                             {% endif %}
                             {% if item.region.name %}
-                                Region: {{ item.region.name }}
-                                <br>
+                            Region: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&region__name={{ item.region.name|urlencode }}>{{ item.region.name }}</a>
+                            <br>
                             {% endif %}
                             {% if item.county.name %}
-                                County: {{ item.county.name }}
-                                <br>
+                            County: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&state__name={{ item.state.name|urlencode }}&region__name={{ item.region.name|urlencode }}&county__name={{ item.county.name|urlencode }}>{{ item.county.name }}</a>
+                            <br>
                             {% endif %}
                             {% if item.city.name %}
-                                City: {{ item.city.name }}
-                                <br>
+                            City: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&state__name={{ item.state.name|urlencode }}&region__name={{ item.region.name|urlencode }}&county__name={{ item.county.name|urlencode }}&city__name={{ item.city.name|urlencode }}>{{ item.city.name }}</a>
+                            <br>
                             {% endif %}
                             {% if item.town.name %}
-                                Town: {{ item.town.name }}
-                                <br>
+                            Town: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&state__name={{ item.state.name|urlencode }}&region__name={{ item.region.name|urlencode }}&county__name={{ item.county.name|urlencode }}&town__name={{ item.town.name|urlencode }}>{{ item.town.name }}
+                            <br>
                             {% endif %}
                             {% if item.village.name %}
-                                Village: {{ item.village.name }}
-                                <br>
+                            Village: <a href={% url 'geo' %}?country__name={{ item.country.name|urlencode }}&state__name={{ item.state.name|urlencode }}&region__name={{ item.region.name|urlencode }}&county__name={{ item.county.name|urlencode }}&village__name={{ item.village.name|urlencode }}>{{ item.village.name }}
+                            <br>
                             {% endif %}
                         </div>
                     </div>

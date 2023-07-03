@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function constructChart(type) {
+    const queryString = window.location.search;
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:8001/api/v1/' + type + '/?rating__gte=4.0&limit=1000', false);
+    xhr.open('GET', 'http://127.0.0.1:8001/api/v1/' + type + '/?rating__gte=4.0&limit=1000&' + queryString.slice(1), false);
 
     try {
         xhr.send();

@@ -9,6 +9,7 @@ urlpatterns = [
     path('tourist-attractions/<int:pk>/', ViewAttraction.as_view(), name='view_attraction'),
     path('restaurants/<int:pk>/', ViewRestaurant.as_view(), name='view_restaurant'),
     path('hotels/<int:pk>/', ViewHotel.as_view(), name='view_hotel'),
+    path('geo/', Geo.as_view(), name='geo'),
     path('api/v1/tourist-attractions/', APITouristAttractionsList.as_view()),
     path('api/v1/restaurants/', APIRestaurantsList.as_view()),
     path('api/v1/hotels/', APIHotelsList.as_view()),

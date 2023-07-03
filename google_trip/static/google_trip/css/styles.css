@@ -336,6 +336,10 @@ input {
     height: 30px;
 }
 
+.info a {
+    display: inline;
+}
+
 
 /*.highcharts-figure {*/
 /*    min-width: 1440px;*/

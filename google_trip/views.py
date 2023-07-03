@@ -14,21 +14,21 @@ class TouristAttractionsFilter(filters.FilterSet):
     # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
     class Meta:
         model = TouristAttraction
-        fields = ['country__name', 'rating']
+        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
 
 class HotelFilter(filters.FilterSet):
     rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
     # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
     class Meta:
         model = Hotel
-        fields = ['country__name', 'rating']
+        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
 
 class RestaurantFilter(filters.FilterSet):
     rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
     # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
     class Meta:
         model = Restaurant
-        fields = ['country__name', 'rating']
+        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
 
 class Home(ListView):
     model = Country
@@ -44,6 +44,19 @@ class Home(ListView):
         context['restaurants'] = Restaurant.objects.filter(country='517').order_by('-number_of_review')[:3]
         return context
 
+class Geo(ListView):
+    model = Country
+    template_name = 'google_trip/geo.html'
+    context_object_name = 'countries'
+    # ordering = 'name'
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['hotels'] = Hotel.objects.filter(country='517').order_by('-number_of_review')[:3]
+    #     context['tourist_attractions'] = TouristAttraction.objects.filter(country='517').order_by('-number_of_review')[
+    #                                      :3]
+    #     context['restaurants'] = Restaurant.objects.filter(country='517').order_by('-number_of_review')[:3]
+    #     return context
 
 class TouristAttractions(ListView):
     model = TouristAttraction
