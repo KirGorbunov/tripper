@@ -68,6 +68,13 @@ class TouristAttractions(ListView):
         context['countries'] = Country.objects.all()
         return context
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        country = self.request.GET.get('country__name')
+        if country is None:
+            return qs
+        return qs.filter(country__name=country)
+
 
 class Restaurants(ListView):
     model = Restaurant
@@ -79,6 +86,13 @@ class Restaurants(ListView):
         context['countries'] = Country.objects.all()
         return context
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        country = self.request.GET.get('country__name')
+        if country is None:
+            return qs
+        return qs.filter(country__name=country)
+
 
 class Hotels(ListView):
     model = Hotel
@@ -89,6 +103,13 @@ class Hotels(ListView):
         context = super().get_context_data(**kwargs)
         context['countries'] = Country.objects.all()
         return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        country = self.request.GET.get('country__name')
+        if country is None:
+            return qs
+        return qs.filter(country__name=country)
 
 
 class ViewAttraction(DetailView):

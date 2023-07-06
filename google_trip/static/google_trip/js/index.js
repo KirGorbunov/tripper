@@ -18,6 +18,11 @@ window.addEventListener("load", function () {
     const linksHotels = document.querySelectorAll('.hotels a');
     const linksRestaurants= document.querySelectorAll('.restaurants a');
 
+    const linksAllTouristAttractions = document.querySelector('.tourist-attractions .choose_button');
+    const linksAllHotels = document.querySelector('.hotels .choose_button');
+    const linksAllRestaurants= document.querySelector('.restaurants .choose_button');
+
+
 
     console.log(photoTouristAttractions)
 
@@ -51,6 +56,10 @@ window.addEventListener("load", function () {
             let HotelsJSON = xhrConnect('GET', URLHotels, false);
             let RestaurantsJSON = xhrConnect('GET', URLRestaurants, false);
             console.log(TouristAttractionsJSON);
+
+            linksAllTouristAttractions.href = '/tourist-attractions/?country__name=' + CountryName;
+            linksAllHotels.href = '/hotels/?country__name=' + CountryName;
+            linksAllRestaurants.href = '/restaurants/?country__name=' + CountryName;
 
             for (let i = 0; i < 3; i++) {
                 nameTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].name;

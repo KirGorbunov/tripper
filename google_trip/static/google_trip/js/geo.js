@@ -27,6 +27,8 @@ window.addEventListener("load", function () {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    const currentPath = window.location.pathname;
+
     const countryName = urlParams.get('country__name');
 
     const stateName = urlParams.get('state__name');
@@ -36,6 +38,7 @@ window.addEventListener("load", function () {
     const countyName = urlParams.get('county__name');
 
     const cityName = urlParams.get('city__name');
+    console.log(cityName)
 
     const townName = urlParams.get('town__name');
 
@@ -45,26 +48,43 @@ window.addEventListener("load", function () {
     let URLTouristAttractions = 'http://127.0.0.1:8001/api/v1/tourist-attractions/' + queryString + '&limit=3';
     let URLHotels = 'http://127.0.0.1:8001/api/v1/hotels/' + queryString + '&limit=3';
     let URLRestaurants = 'http://127.0.0.1:8001/api/v1/restaurants/' + queryString + '&limit=3';
+
+    let geoHref = currentPath
+
     if (countryName) {
         country.innerText = countryName;
+        geoHref += '?country__name=' + countryName;
+        country.href = geoHref;
     };
     if (stateName) {
         state.innerText = '> ' + stateName;
+        geoHref += '&state__name=' + stateName;
+        state.href = geoHref;
     };
     if (regionName) {
         region.innerText = '> ' + regionName;
+        geoHref += '&region__name=' + regionName;
+        region.href = geoHref;
     };
     if (countyName) {
         county.innerText = '> ' + countyName;
+        geoHref += '&county__name=' + countyName;
+        county.href = geoHref;
     };
     if (cityName) {
         city.innerText = '> ' + cityName;
+        geoHref += '&city__name=' + cityName;
+        city.href = geoHref;
     };
     if (townName) {
         town.innerText = '> ' + townName;
+        geoHref += '&town__name=' + townName;
+        town.href = geoHref;
     };
     if (villageName) {
         village.innerText = '> ' + villageName;
+        geoHref += '&village__name=' + villageName;
+        village.href = geoHref;
     };
 
 
@@ -111,6 +131,9 @@ window.addEventListener("load", function () {
         linksHotels[i * 2 + 1].href = '/hotels/' + HotelsJSON.results[i].id;
         linksRestaurants[i * 2].href = '/restaurants/' + RestaurantsJSON.results[i].id;
         linksRestaurants[i * 2 + 1].href = '/restaurants/' + RestaurantsJSON.results[i].id;
+
+
+
     }
     initRatings("./rating.js");
 });

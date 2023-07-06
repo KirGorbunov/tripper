@@ -52,7 +52,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'tourist_attractions_list' %}?country__name={{ countries.0|urlencode }}>
                             <span class="base_button_span">SEE ALL TOURIST ATTRACTIONS</span>
                         </a>
                     </div>
@@ -75,7 +75,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'hotels_list' %}?country__name={{ countries.0|urlencode }}>>
                             <span class="base_button_span">SEE ALL HOTELS</span>
                         </a>
                     </div>
@@ -98,7 +98,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'restaurants_list' %}?country__name={{ countries.0|urlencode }}>>
                             <span class="base_button_span">SEE ALL RESTAURANTS</span>
                         </a>
                     </div>
