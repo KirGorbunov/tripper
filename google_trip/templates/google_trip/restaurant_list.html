@@ -29,6 +29,10 @@
                     <div class="photo">
                         <img src="{{ item.photo.url }}" alt="">
                     </div>
+                    {% else %}
+                    <div class="photo">
+                        <img src="/media/common/no_photo.jpg">
+                    </div>
                     {% endif %}
                     <div class="place-information">
                         <div class="name">

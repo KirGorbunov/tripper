@@ -8,6 +8,10 @@
             <div class="name">{{ object.name|safe }} ({{ object.country }})</div>
             {% if object.photo %}
             <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
+            {% else %}
+            <div class="photo">
+                <img src="/media/common/no_photo.jpg">
+            </div>
             {% endif %}
             <div class="number_of_review">{{ object.number_of_review }}</div>
             <div class="rating">

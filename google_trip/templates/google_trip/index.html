@@ -36,10 +36,15 @@
                     <div class="country-one-category tourist-attractions">
                         <h3>Tourist attractions</h3>
                         {% for attr in tourist_attractions %}
-                        {% if attr.photo %}
                         <div class="one-place">
                             <div class="name"><a href={% url 'view_attraction' attr.pk %}>{{ attr.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_attraction' attr.pk %}><img src="{{ attr.photo.url }}" alt=""></a></div>
+                            <div class="photo"><a href={% url 'view_attraction' attr.pk %}>
+                                {% if attr.photo %}
+                                <img src="{{ attr.photo.url }}" alt="">
+                                {% else %}
+                                <img src="/media/common/no_photo.jpg">
+                                {% endif %}
+                            </a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -50,7 +55,6 @@
                             </div>
                             <div class="number_of_review">{{ attr.number_of_review }} reviews</div>
                         </div>
-                        {% endif %}
                         {% endfor %}
                         <a class="base_button choose_button" href={% url 'tourist_attractions_list' %}?country__name={{ countries.0|urlencode }}>
                             <span class="base_button_span">SEE ALL TOURIST ATTRACTIONS</span>
@@ -59,10 +63,15 @@
                     <div class="country-one-category hotels">
                         <h3>Hotels</h3>
                         {% for hotel in hotels %}
-                        {% if hotel.photo %}
                         <div class="one-place">
                             <div class="name"><a href={% url 'view_hotel' hotel.pk %}>{{ hotel.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_hotel' hotel.pk %}><img src="{{ hotel.photo.url }}" alt=""></a></div>
+                            <div class="photo"><a href={% url 'view_hotel' hotel.pk %}>
+                                {% if hotel.photo %}
+                                <img src="{{ hotel.photo.url }}" alt="">
+                                {% else %}
+                                <img src="/media/common/no_photo.jpg">
+                                {% endif %}
+                            </a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -73,7 +82,6 @@
                             </div>
                             <div class="number_of_review">{{ hotel.number_of_review }} reviews</div>
                         </div>
-                        {% endif %}
                         {% endfor %}
                         <a class="base_button choose_button" href={% url 'hotels_list' %}?country__name={{ countries.0|urlencode }}>>
                             <span class="base_button_span">SEE ALL HOTELS</span>
@@ -82,10 +90,15 @@
                     <div class="country-one-category restaurants">
                         <h3>Restaurants</h3>
                         {% for restaurant in restaurants %}
-                        {% if restaurant.photo %}
                         <div class="one-place">
                             <div class="name"><a href={% url 'view_restaurant' restaurant.pk %}>{{ restaurant.name|safe }}</a></div>
-                            <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}><img src="{{ restaurant.photo.url }}" alt=""></a></div>
+                            <div class="photo"><a href={% url 'view_restaurant' restaurant.pk %}>
+                                {% if restaurant.photo%}
+                                <img src="{{ restaurant.photo.url }}" alt="">
+                                {% else %}
+                                <img src="/media/common/no_photo.jpg">
+                                {% endif %}
+                            </a></div>
                             <div class="rating">
                                 <div class="rating__item">★</div>
                                 <div class="rating__body">
@@ -96,7 +109,6 @@
                             </div>
                             <div class="number_of_review">{{ restaurant.number_of_review }} reviews</div>
                         </div>
-                        {% endif %}
                         {% endfor %}
                         <a class="base_button choose_button" href={% url 'restaurants_list' %}?country__name={{ countries.0|urlencode }}>>
                             <span class="base_button_span">SEE ALL RESTAURANTS</span>
