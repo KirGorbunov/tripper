@@ -340,6 +340,37 @@ input {
     display: inline;
 }
 
+.pagination {
+    text-align: center;
+}
+
+.step-links {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.current {
+    background-color: gray;
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
 
 /*.highcharts-figure {*/
 /*    min-width: 1440px;*/
