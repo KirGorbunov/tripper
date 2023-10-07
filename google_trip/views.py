@@ -65,7 +65,7 @@ class TouristAttractions(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['countries'] = Country.objects.all()
+        context['countries'] = Country.objects.all().order_by('name')
         return context
 
     def get_queryset(self):
@@ -83,7 +83,7 @@ class Restaurants(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['countries'] = Country.objects.all()
+        context['countries'] = Country.objects.all().order_by('name')
         return context
 
     def get_queryset(self):
@@ -101,7 +101,7 @@ class Hotels(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['countries'] = Country.objects.all()
+        context['countries'] = Country.objects.all().order_by('name')
         return context
 
     def get_queryset(self):
