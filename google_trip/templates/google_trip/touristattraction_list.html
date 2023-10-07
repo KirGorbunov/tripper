@@ -14,7 +14,7 @@
                 </div>
                 <ul class="search">
                     {% for country in countries %}
-                    <li><a href= {{request.path}}?country__name={{ country.name|urlencode }}>{{ country.name }}</a></li>
+                    <a href= {{request.path}}?country__name={{ country.name|urlencode }}><li>{{ country.name }}</li></a>
                     {% endfor %}
                 </ul>
             </div>
@@ -104,4 +104,5 @@
         </div>
     </div>
 </section>
+<script src={% static "google_trip/js/country_navigate.js" %}></script>
 {% endblock %}
