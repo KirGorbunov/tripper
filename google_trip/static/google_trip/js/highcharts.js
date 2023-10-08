@@ -12,10 +12,20 @@ function getURL() {
     return URL;
 }
 
-console.log(getURL())
-
 currentId = parseInt(window.location.pathname.match(/\d+/));
 console.log(currentId)
+
+// async function sendRequest(method, url) {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     console.log(data)
+//     return data
+// }
+//
+//
+// sendRequest('GET', getURL()).then(jsonData => {
+//     jsonData;
+// })
 
 let xhr = new XMLHttpRequest();
 
@@ -34,8 +44,9 @@ try {
 
 let result = jsonData.filter((item) => item.id === currentId);
 let currentData = result[0];
+
 console.log(currentData.x)
-console.log(Math.max(currentData.x, 4))
+console.log(currentData.y)
 
 jsonData = jsonData.filter((item) => item.id != currentId & item.country_id === currentData.country_id);
 
@@ -106,16 +117,3 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
 });
-
-ymaps.ready(init);
-
-function init() {
-    var myMap = new ymaps.Map("map", {
-        center: [currentData.latitude, currentData.longitude],
-        zoom: 16
-    });
-    myMap.setType('yandex#hybrid');
-    var placemark = new ymaps.Placemark([currentData.latitude, currentData.longitude]);
-    placemark.name = currentData.name;
-    myMap.geoObjects.add(placemark);
-}

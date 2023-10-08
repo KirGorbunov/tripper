@@ -373,6 +373,14 @@ input {
     border: 1px solid #ddd;
 }
 
+.latitude {
+    visibility: hidden;
+}
+
+.longitude {
+    visibility: hidden;
+}
+
 /*.highcharts-figure {*/
 /*    min-width: 1440px;*/
 /*    min-height: 3280px;*/

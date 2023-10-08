@@ -8,6 +8,8 @@
     <div class="container">
         <div class="country-one-category">
             <div class="name">{{ object.name|safe }} ({{ object.country }})</div>
+            <div class="latitude">{{ object.latitude }}</div>
+            <div class="longitude">{{ object.longitude }}</div>
             {% if object.photo %}
             <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
             {% endif %}
@@ -61,6 +63,7 @@
 
             <script src="https://api-maps.yandex.ru/2.1/?apikey=ea8ed546-bf5b-4f2e-93ae-2f84155eb151&lang=en_US" type="text/javascript">
     </script>
+            <script src={% static "google_trip/js/yandex_map.js" %}></script>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
