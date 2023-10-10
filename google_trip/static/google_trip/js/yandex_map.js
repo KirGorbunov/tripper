@@ -1,6 +1,6 @@
 const latitude = document.querySelector('.latitude').innerHTML
 const longitude = document.querySelector('.longitude').innerHTML
-const name = document.querySelector('.name').innerHTML
+const name = document.querySelector('#object_name').innerHTML
 console.log(latitude)
 console.log(longitude)
 console.log(name)

@@ -1,4 +1,5 @@
-function getURL() {
+const countryName = document.querySelector('#country_name').innerHTML
+function getURL(countryName) {
     let URL;
     if (window.location.pathname.includes("tourist-attractions")) {
         URL = 'http://127.0.0.1:8001/api/v1/tourist-attractions/';
@@ -7,13 +8,14 @@ function getURL() {
     } else if (window.location.pathname.includes("restaurants")) {
         URL = 'http://127.0.0.1:8001/api/v1/restaurants/';
     }
-    return URL;
+    return URL + '?country__name=' + countryName;
 }
 
 currentId = parseInt(window.location.pathname.match(/\d+/));
 console.log(currentId)
 
-let URL = getURL()
+let URL = getURL(countryName)
+console.log(URL)
 
 async function sendRequest(URL) {
     const response = await fetch(URL);
@@ -25,7 +27,7 @@ sendRequest(URL).then((data) => {
     let result = data.filter((item) => item.id === currentId);
     let currentData = result[0];
 
-    jsonData = data.filter((item) => item.id != currentId & item.country_id === currentData.country_id);
+    jsonData = data.filter((item) => item.id != currentId);
 
     Highcharts.chart('container', {
         chart: {
