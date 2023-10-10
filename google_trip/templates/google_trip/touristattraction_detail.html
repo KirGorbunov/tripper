@@ -44,11 +44,11 @@
                 <br>
                 {% endif %}
                 {% if object.town.name %}
-                Town: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&town__name={{ object.town.name|urlencode }}>{{ object.town.name }}
+                Town: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&town__name={{ object.town.name|urlencode }}>{{ object.town.name }}</a>
                 <br>
                 {% endif %}
                 {% if object.village.name %}
-                Village: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&village__name={{ object.village.name|urlencode }}>{{ object.village.name }}
+                Village: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&village__name={{ object.village.name|urlencode }}>{{ object.village.name }}</a>
                 <br>
                 {% endif %}
             </div>

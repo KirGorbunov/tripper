@@ -2,11 +2,9 @@ function getURL() {
     let URL;
     if (window.location.pathname.includes("tourist-attractions")) {
         URL = 'http://127.0.0.1:8001/api/v1/tourist-attractions/';
-        }
-    else if (window.location.pathname.includes("hotels")) {
+    } else if (window.location.pathname.includes("hotels")) {
         URL = 'http://127.0.0.1:8001/api/v1/hotels/';
-    }
-    else if (window.location.pathname.includes("restaurants")) {
+    } else if (window.location.pathname.includes("restaurants")) {
         URL = 'http://127.0.0.1:8001/api/v1/restaurants/';
     }
     return URL;
@@ -15,43 +13,19 @@ function getURL() {
 currentId = parseInt(window.location.pathname.match(/\d+/));
 console.log(currentId)
 
-// async function sendRequest(method, url) {
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     console.log(data)
-//     return data
-// }
-//
-//
-// sendRequest('GET', getURL()).then(jsonData => {
-//     jsonData;
-// })
+let URL = getURL()
 
-let xhr = new XMLHttpRequest();
-
-xhr.open('GET', getURL(), false);
-
-try {
-  xhr.send();
-  if (xhr.status != 200) {
-    alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-  } else {
-    var jsonData = JSON.parse(xhr.response);
-  }
-} catch(err) {
-  alert("Запрос не удался");
+async function sendRequest(URL) {
+    const response = await fetch(URL);
+    const data = await response.json();
+    return data
 }
 
-let result = jsonData.filter((item) => item.id === currentId);
-let currentData = result[0];
+sendRequest(URL).then((data) => {
+    let result = data.filter((item) => item.id === currentId);
+    let currentData = result[0];
 
-console.log(currentData.x)
-console.log(currentData.y)
-
-jsonData = jsonData.filter((item) => item.id != currentId & item.country_id === currentData.country_id);
-
-document.addEventListener('DOMContentLoaded', () => {
-
+    jsonData = data.filter((item) => item.id != currentId & item.country_id === currentData.country_id);
 
     Highcharts.chart('container', {
         chart: {
@@ -90,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 point: {
                     events: {
                         click: function () {
-                            window.open('../'+this.id);
+                            window.open('../' + this.id);
                         }
                     }
                 }
