@@ -5,54 +5,56 @@
 <section class="attr_detail">
     <div class="container">
         <div class="country-one-category">
-            <div class="name"><span id="object_name">{{ object.name|safe }}</span> (<span id="country_name">{{ object.country }}</span>)</div>
             <div class="latitude">{{ object.latitude }}</div>
             <div class="longitude">{{ object.longitude }}</div>
-            {% if object.photo %}
-            <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
-            {% else %}
-            <div class="photo">
-                <img src="/media/common/no_photo.jpg">
-            </div>
-            {% endif %}
-            <div class="number_of_review">{{ object.number_of_review }}</div>
-            <div class="rating">
-                <div class="rating__item">★</div>
-                <div class="rating__body">
-                    <div class="rating__active"></div>
-                    <div class="rating__items"></div>
+            <div class="name name-detail"><span id="object_name">{{ object.name|safe }}</span> (<span id="country_name">{{ object.country }}</span>)</div>
+            <div class="main_information">
+                <div class="graph">
+                    {% if object.photo %}
+                        <div class="photo"><img src="{{ object.photo.url }}" alt=""></div>
+                        {% else %}
+                        <div class="photo">
+                            <img src="/media/common/no_photo.jpg">
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="rating__value">{{ object.rating }}</div>
-            </div>
-            <div class="info">
-                {% if object.country.name %}
-                Country: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}>{{ object.country.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.state.name %}
-                State: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}>{{ object.state.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.region.name %}
-                Region: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&region__name={{ object.region.name|urlencode }}>{{ object.region.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.county.name %}
-                County: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}>{{ object.county.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.city.name %}
-                City: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&city__name={{ object.city.name|urlencode }}>{{ object.city.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.town.name %}
-                Town: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&town__name={{ object.town.name|urlencode }}>{{ object.town.name }}</a>
-                <br>
-                {% endif %}
-                {% if object.village.name %}
-                Village: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&village__name={{ object.village.name|urlencode }}>{{ object.village.name }}</a>
-                <br>
-                {% endif %}
+                <div class="info">
+                    {% if object.country.name %}
+                    <div>
+                        Country: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}>{{ object.country.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.state.name %}
+                    <div>
+                    State: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}>{{ object.state.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.region.name %}
+                    <div>
+                    Region: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&region__name={{ object.region.name|urlencode }}>{{ object.region.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.county.name %}
+                    <div>
+                    County: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}>{{ object.county.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.city.name %}
+                    <div>
+                    City: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&city__name={{ object.city.name|urlencode }}>{{ object.city.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.town.name %}
+                    <div>
+                    Town: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&town__name={{ object.town.name|urlencode }}>{{ object.town.name }}</a>
+                    </div>
+                    {% endif %}
+                    {% if object.village.name %}
+                    <div>
+                    Village: <a href={% url 'geo' %}?country__name={{ object.country.name|urlencode }}&state__name={{ object.state.name|urlencode }}&region__name={{ object.region.name|urlencode }}&county__name={{ object.county.name|urlencode }}&village__name={{ object.village.name|urlencode }}>{{ object.village.name }}</a>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
             <div id="map" style="width: 600px; height: 400px"></div>
 

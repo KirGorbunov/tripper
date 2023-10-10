@@ -8,6 +8,10 @@ a {
     background-color: transparent;
 }
 
+.info a:hover {
+    text-decoration: underline;
+}
+
 ul {
     list-style: none;
 }
@@ -260,7 +264,7 @@ input {
 .country-one-category {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .country-one-category a {
@@ -283,6 +287,11 @@ input {
     cursor: pointer;
 }
 
+.name-detail {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
 .name a {
     padding-bottom: 0.75rem;
     font-size: 16px;
@@ -292,7 +301,6 @@ input {
 .name a:hover {
     text-decoration: underline;
 }
-
 
 .search li.hide {
     display: none;
@@ -337,6 +345,13 @@ input {
     height: 30px;
 }
 
+.info {
+    display: flex;
+    /*margin-left: 30px;*/
+    justify-content: center;
+    flex-direction: column;
+}
+
 .info a {
     display: inline;
 }
@@ -379,6 +394,16 @@ input {
 
 .longitude {
     visibility: hidden;
+}
+
+.main_information {
+    display: flex;
+    flex-direction: row;
+}
+
+#map {
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 /*.highcharts-figure {*/
