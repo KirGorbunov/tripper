@@ -1,12 +1,23 @@
+window.addEventListener("load", function () {
+    const countriesForChoice = document.querySelectorAll('.country-navigation ul li');
+    countriesForChoice.forEach(el => {
+        el.addEventListener('click', () => {
+            let CountryName = el.innerText;
+            let CounterQuery = 'country__name='+CountryName
+            constructChart('tourist-attractions', CounterQuery);
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-    constructChart('tourist-attractions');
+    constructChart('tourist-attractions', CounterQuery='');
 });
 
 
-function constructChart(type) {
+function constructChart(type, CounterQuery) {
     const queryString = window.location.search;
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:8001/api/v1/' + type + '/?rating__gte=4.0&limit=1000&' + queryString.slice(1), false);
+    xhr.open('GET', 'http://127.0.0.1:8001/api/v1/' + type + '/?'+ CounterQuery +'&rating__gte=4.0&limit=1000&' + queryString.slice(1), false);
 
     try {type
         xhr.send();
@@ -101,7 +112,3 @@ window.addEventListener("load", function () {
         constructChart('restaurants');
     });
 });
-
-
-
-
