@@ -4,7 +4,8 @@ window.addEventListener("load", function () {
         el.addEventListener('click', () => {
             let CountryName = el.innerText;
             let CounterQuery = 'country__name='+CountryName
-            constructChart('tourist-attractions', CounterQuery);
+            let activeType = document.querySelector('.places .active span').innerText.toLowerCase().replace(" ", "-");
+            constructChart(activeType, CounterQuery);
         });
     });
 });
@@ -106,17 +107,47 @@ window.addEventListener("load", function () {
 
     tourist_attraction_button.addEventListener('click', () => {
         let countryName = document.querySelector('.country-name h2').innerText;
-        let CounterQuery = 'country__name='+countryName
-        constructChart('tourist-attractions', CounterQuery);
+        tourist_attraction_button.classList.add('active');
+        hotels_button.classList.remove('active');
+        restaurants_attraction_button.classList.remove('active');
+
+        if (countryName == 'World') {
+            let CounterQuery = ''
+            constructChart('tourist-attractions', CounterQuery);
+        }
+        else {
+            let CounterQuery = 'country__name=' + countryName
+            constructChart('tourist-attractions', CounterQuery);
+        }
     });
     hotels_button.addEventListener('click', () => {
         let countryName = document.querySelector('.country-name h2').innerText;
-        let CounterQuery = 'country__name='+countryName
-        constructChart('hotels', CounterQuery);
+        tourist_attraction_button.classList.remove('active');
+        hotels_button.classList.add('active');
+        restaurants_attraction_button.classList.remove('active');
+
+        if (countryName == 'World') {
+            let CounterQuery = ''
+            constructChart('hotels', CounterQuery);
+        }
+        else {
+            let CounterQuery = 'country__name='+countryName
+            constructChart('hotels', CounterQuery);
+        }
     });
     restaurants_attraction_button.addEventListener('click', () => {
         let countryName = document.querySelector('.country-name h2').innerText;
-        let CounterQuery = 'country__name='+countryName
-        constructChart('restaurants', CounterQuery);
+        tourist_attraction_button.classList.remove('active');
+        hotels_button.classList.remove('active');
+        restaurants_attraction_button.classList.add('active');
+
+        if (countryName == 'World') {
+            let CounterQuery = ''
+            constructChart('restaurants', CounterQuery);
+        }
+        else {
+            let CounterQuery = 'country__name=' + countryName
+            constructChart('restaurants', CounterQuery);
+        }
     });
 });

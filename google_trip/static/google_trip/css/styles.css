@@ -406,6 +406,10 @@ input {
     margin-bottom: 20px;
 }
 
+.index_img.active {
+    background: #b7b6b6;
+}
+
 /*.highcharts-figure {*/
 /*    min-width: 1440px;*/
 /*    min-height: 3280px;*/
