@@ -102,13 +102,21 @@ window.addEventListener("load", function () {
     const hotels_button = document.querySelector('.index_img.hotels_index_image');
     const restaurants_attraction_button = document.querySelector('.index_img.restaurants_index_image');
 
+
+
     tourist_attraction_button.addEventListener('click', () => {
-        constructChart('tourist-attractions');
+        let countryName = document.querySelector('.country-name h2').innerText;
+        let CounterQuery = 'country__name='+countryName
+        constructChart('tourist-attractions', CounterQuery);
     });
     hotels_button.addEventListener('click', () => {
-        constructChart('hotels');
+        let countryName = document.querySelector('.country-name h2').innerText;
+        let CounterQuery = 'country__name='+countryName
+        constructChart('hotels', CounterQuery);
     });
     restaurants_attraction_button.addEventListener('click', () => {
-        constructChart('restaurants');
+        let countryName = document.querySelector('.country-name h2').innerText;
+        let CounterQuery = 'country__name='+countryName
+        constructChart('restaurants', CounterQuery);
     });
 });

@@ -38,10 +38,10 @@ class Home(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hotels'] = Hotel.objects.filter(country='517').order_by('-number_of_review')[:3]
-        context['tourist_attractions'] = TouristAttraction.objects.filter(country='517').order_by('-number_of_review')[
+        context['hotels'] = Hotel.objects.all().order_by('-number_of_review')[:3]
+        context['tourist_attractions'] = TouristAttraction.objects.all().order_by('-number_of_review')[
                                          :3]
-        context['restaurants'] = Restaurant.objects.filter(country='517').order_by('-number_of_review')[:3]
+        context['restaurants'] = Restaurant.objects.all().order_by('-number_of_review')[:3]
         return context
 
 class Geo(ListView):
