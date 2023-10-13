@@ -28,6 +28,7 @@ sendRequest(URL).then((data) => {
     let currentData = result[0];
 
     jsonData = data.filter((item) => item.id != currentId);
+    console.log(jsonData)
 
     Highcharts.chart('container', {
         chart: {
