@@ -4,9 +4,6 @@
 {% block content %}
 <section class="countries">
     <div class="container">
-<!--        <div class="intro">-->
-<!--            <h2>Geo Name</h2>-->
-<!--        </div>-->
         <div class="show-list">
             <div class="address-show">
                 <a href="" class="country-name"></a>
@@ -34,7 +31,7 @@
                             <div class="number_of_review"> reviews</div>
                         </div>
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'tourist_attractions_list' %}>
                             <span class="base_button_span">SEE ALL TOURIST ATTRACTIONS</span>
                         </a>
                     </div>
@@ -55,7 +52,7 @@
                             <div class="number_of_review"> reviews</div>
                         </div>
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'hotels_list' %}>
                             <span class="base_button_span">SEE ALL HOTELS</span>
                         </a>
                     </div>
@@ -76,7 +73,7 @@
                             <div class="number_of_review"> reviews</div>
                         </div>
                         {% endfor %}
-                        <a class="base_button choose_button" href="#">
+                        <a class="base_button choose_button" href={% url 'restaurants_list' %}>
                             <span class="base_button_span">SEE ALL RESTAURANTS</span>
                         </a>
                     </div>
