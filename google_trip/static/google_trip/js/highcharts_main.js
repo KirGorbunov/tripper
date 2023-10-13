@@ -17,51 +17,68 @@ window.addEventListener("load", function () {
 
 
     tourist_attraction_button.addEventListener('click', () => {
-        let countryName = document.querySelector('.country-name h2').innerText;
+        let countryNameObj = document.querySelector('.country-name h2');
+        if (countryNameObj) {
+            let countryName = countryNameObj.innerText
+            if (countryName == 'World') {
+                let CounterQuery = ''
+                constructChart('tourist-attractions', CounterQuery);
+            } else {
+                let CounterQuery = 'country__name=' + countryName
+                constructChart('tourist-attractions', CounterQuery);
+            }
+        }
+        else {
+            constructChart('tourist-attractions', '');
+        }
         tourist_attraction_button.classList.add('active');
         hotels_button.classList.remove('active');
         restaurants_attraction_button.classList.remove('active');
-
-        if (countryName == 'World') {
-            let CounterQuery = ''
-            constructChart('tourist-attractions', CounterQuery);
-        } else {
-            let CounterQuery = 'country__name=' + countryName
-            constructChart('tourist-attractions', CounterQuery);
-        }
     });
     hotels_button.addEventListener('click', () => {
-        let countryName = document.querySelector('.country-name h2').innerText;
+        let countryNameObj = document.querySelector('.country-name h2');
+        if (countryNameObj) {
+            let countryName = countryNameObj.innerText
+            if (countryName == 'World') {
+                let CounterQuery = ''
+                constructChart('hotels', CounterQuery);
+            } else {
+                let CounterQuery = 'country__name=' + countryName
+                constructChart('hotels', CounterQuery);
+            }
+        }
+        else {
+            constructChart('hotels', '');
+        }
         tourist_attraction_button.classList.remove('active');
         hotels_button.classList.add('active');
         restaurants_attraction_button.classList.remove('active');
-
-        if (countryName == 'World') {
-            let CounterQuery = ''
-            constructChart('hotels', CounterQuery);
-        } else {
-            let CounterQuery = 'country__name=' + countryName
-            constructChart('hotels', CounterQuery);
-        }
     });
+
     restaurants_attraction_button.addEventListener('click', () => {
-        let countryName = document.querySelector('.country-name h2').innerText;
+        let countryNameObj = document.querySelector('.country-name h2');
+        if (countryNameObj) {
+            let countryName = countryNameObj.innerText
+            if (countryName == 'World') {
+                let CounterQuery = ''
+                constructChart('restaurants', CounterQuery);
+            } else {
+                let CounterQuery = 'country__name=' + countryName
+                constructChart('restaurants', CounterQuery);
+            }
+        }
+        else {
+            constructChart('restaurants', '');
+        }
         tourist_attraction_button.classList.remove('active');
         hotels_button.classList.remove('active');
         restaurants_attraction_button.classList.add('active');
-
-        if (countryName == 'World') {
-            let CounterQuery = ''
-            constructChart('restaurants', CounterQuery);
-        } else {
-            let CounterQuery = 'country__name=' + countryName
-            constructChart('restaurants', CounterQuery);
-        }
     });
 });
 
 async function sendRequest(type, CounterQuery) {
-    let URL = 'http://127.0.0.1:8001/api/v1/' + type + '/?' + CounterQuery + '&rating__gte=4.0&limit=1000';
+    const queryString = window.location.search;
+    let URL = 'http://127.0.0.1:8001/api/v1/' + type + '/?' + CounterQuery + '&rating__gte=4.0&limit=1000&' + queryString.slice(1);
 
     const response = await fetch(URL);
     const data = await response.json();
