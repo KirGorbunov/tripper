@@ -78,7 +78,7 @@ window.addEventListener("load", function () {
 
 async function sendRequest(type, CounterQuery) {
     const queryString = window.location.search;
-    let URL = 'http://127.0.0.1:8001/api/v1/' + type + '/?' + CounterQuery + '&rating__gte=4.0&limit=1000&' + queryString.slice(1);
+    let URL = location.protocol + '//' + location.host + '/api/v1/' + type + '/?' + CounterQuery + '&rating__gte=4.0&limit=1000&' + queryString.slice(1);
 
     const response = await fetch(URL);
     const data = await response.json();

@@ -2,11 +2,11 @@ const countryName = document.querySelector('#country_name').innerHTML
 function getURL(countryName) {
     let URL;
     if (window.location.pathname.includes("tourist-attractions")) {
-        URL = 'http://127.0.0.1:8001/api/v1/tourist-attractions/';
+        URL = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/';
     } else if (window.location.pathname.includes("hotels")) {
-        URL = 'http://127.0.0.1:8001/api/v1/hotels/';
+        URL = location.protocol + '//' + location.host + '/api/v1/hotels/';
     } else if (window.location.pathname.includes("restaurants")) {
-        URL = 'http://127.0.0.1:8001/api/v1/restaurants/';
+        URL = location.protocol + '//' + location.host + '/api/v1/restaurants/';
     }
     return URL + '?country__name=' + countryName;
 }

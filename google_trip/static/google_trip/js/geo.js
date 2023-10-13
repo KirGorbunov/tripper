@@ -44,10 +44,9 @@ window.addEventListener("load", function () {
 
     const villageName = urlParams.get('village__name');
 
-
-    let URLTouristAttractions = 'http://127.0.0.1:8001/api/v1/tourist-attractions/' + queryString + '&limit=3';
-    let URLHotels = 'http://127.0.0.1:8001/api/v1/hotels/' + queryString + '&limit=3';
-    let URLRestaurants = 'http://127.0.0.1:8001/api/v1/restaurants/' + queryString + '&limit=3';
+    let URLTouristAttractions = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/' + queryString + '&limit=3';
+    let URLHotels = location.protocol + '//' + location.host + '/api/v1/hotels/' + queryString + '&limit=3';
+    let URLRestaurants = location.protocol + '//' + location.host +  '/api/v1/restaurants/' + queryString + '&limit=3';
 
     let geoHref = currentPath
 
