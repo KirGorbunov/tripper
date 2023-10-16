@@ -30,9 +30,9 @@ window.addEventListener("load", function () {
             let CountryName = el.innerText;
             console.log(CountryName);
             country.innerText = CountryName;
-            let URLTouristAttractions = 'http://127.0.0.1:8001/api/v1/tourist-attractions/?country__name=' + CountryName + '&limit=3';
-            let URLHotels = 'http://127.0.0.1:8001/api/v1/hotels/?country__name=' + CountryName + '&limit=3';
-            let URLRestaurants = 'http://127.0.0.1:8001/api/v1/restaurants/?country__name=' + CountryName + '&limit=3';
+            let URLTouristAttractions = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/?country__name=' + CountryName + '&limit=3';
+            let URLHotels = location.protocol + '//' + location.host + '/api/v1/hotels/?country__name=' + CountryName + '&limit=3';
+            let URLRestaurants = location.protocol + '//' + location.host + '/api/v1/restaurants/?country__name=' + CountryName + '&limit=3';
 
 
             linksAllTouristAttractions.href = '/tourist-attractions/?country__name=' + CountryName;
