@@ -1,34 +1,56 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from rest_framework import generics
 from django.views.generic import ListView, DetailView
-from .models import *
-from .serializers import TouristAttractionSerializer, RestaurantSerializer, HotelSerializer
+from .models import TouristAttraction, Restaurant, Hotel, Country
+from .serializers import TouristAttractionSerializer, \
+    RestaurantSerializer, \
+    HotelSerializer
 from django_filters import rest_framework as filters
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import OrderingFilter
 
 
 class TouristAttractionsFilter(filters.FilterSet):
     rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
-    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+
     class Meta:
         model = TouristAttraction
-        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
+        fields = ['country__name',
+                  'state__name',
+                  'region__name',
+                  'county__name',
+                  'city__name',
+                  'town__name',
+                  'village__name',
+                  'rating']
+
 
 class HotelFilter(filters.FilterSet):
     rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
-    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+
     class Meta:
         model = Hotel
-        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
+        fields = ['country__name',
+                  'state__name',
+                  'region__name',
+                  'county__name',
+                  'city__name',
+                  'town__name',
+                  'village__name',
+                  'rating']
+
 
 class RestaurantFilter(filters.FilterSet):
     rating__gte = filters.NumberFilter(field_name='rating', lookup_expr='gte')
-    # rating__lte = filters.NumberFilter(field_name='rating', lookup_expr='lte')
+
     class Meta:
         model = Restaurant
-        fields = ['country__name', 'state__name', 'region__name', 'county__name', 'city__name', 'town__name', 'village__name', 'rating']
+        fields = ['country__name',
+                  'state__name',
+                  'region__name',
+                  'county__name',
+                  'city__name',
+                  'town__name',
+                  'village__name',
+                  'rating']
+
 
 class Home(ListView):
     model = Country
@@ -38,25 +60,20 @@ class Home(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hotels'] = Hotel.objects.all().order_by('-number_of_review')[:3]
-        context['tourist_attractions'] = TouristAttraction.objects.all().order_by('-number_of_review')[
-                                         :3]
-        context['restaurants'] = Restaurant.objects.all().order_by('-number_of_review')[:3]
+        context['hotels'] = Hotel.objects.all().order_by(
+            '-number_of_review')[:3]
+        context['tourist_attractions'] = TouristAttraction.objects.all().order_by(
+            '-number_of_review')[:3]
+        context['restaurants'] = Restaurant.objects.all().order_by(
+            '-number_of_review')[:3]
         return context
+
 
 class Geo(ListView):
     model = Country
     template_name = 'google_trip/geo.html'
     context_object_name = 'countries'
-    # ordering = 'name'
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['hotels'] = Hotel.objects.filter(country='517').order_by('-number_of_review')[:3]
-    #     context['tourist_attractions'] = TouristAttraction.objects.filter(country='517').order_by('-number_of_review')[
-    #                                      :3]
-    #     context['restaurants'] = Restaurant.objects.filter(country='517').order_by('-number_of_review')[:3]
-    #     return context
 
 class TouristAttractions(ListView):
     model = TouristAttraction
@@ -115,6 +132,7 @@ class Hotels(ListView):
 class ViewAttraction(DetailView):
     model = TouristAttraction
 
+
 class ViewRestaurant(DetailView):
     model = Restaurant
 
@@ -127,13 +145,6 @@ class APITouristAttractionsList(generics.ListCreateAPIView):
     queryset = TouristAttraction.objects.all().order_by('-number_of_review')
     serializer_class = TouristAttractionSerializer
     filterset_class = TouristAttractionsFilter
-    # def get_queryset(self):
-    #     country = self.request.query_params.get('country')
-    #     if country:
-    #         return TouristAttraction.objects.order_by('-number_of_review').filter(country__name=country)[
-    #                                      :3]
-    #     else:
-    #         return TouristAttraction.objects.all()
 
 
 class APIRestaurantsList(generics.ListCreateAPIView):
