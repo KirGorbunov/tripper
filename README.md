@@ -213,6 +213,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [DRF]: https://img.shields.io/badge/drf-2C2C2C?style=for-the-badge&logo=django&logoColor=F1FFF7
 [DRF-url]: https://www.django-rest-framework.org/
 [Javascript]: https://img.shields.io/badge/javascript-2C2C2C?style=for-the-badge&logo=javascript&logoColor=F1FFF7
-[Javascript]: https://www.javascript.com/
+[Javascript-url]: https://www.javascript.com/
 [Highcharts]: https://img.shields.io/badge/highcharts-2f2b38?style=for-the-badge&logo=highcharts&logoColor=FFFFFF
 [Highcharts-url]: https://www.highcharts.com/
