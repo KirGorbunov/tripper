@@ -13,28 +13,20 @@ window.addEventListener("load", function () {
     const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating__value');
     const ratingHotels = document.querySelectorAll('.hotels .rating__value');
     const ratingRestaurants = document.querySelectorAll('.restaurants .rating__value');
-
     const linksTouristAttractions = document.querySelectorAll('.tourist-attractions a');
     const linksHotels = document.querySelectorAll('.hotels a');
     const linksRestaurants = document.querySelectorAll('.restaurants a');
-
     const linksAllTouristAttractions = document.querySelector('.tourist-attractions .choose_button');
     const linksAllHotels = document.querySelector('.hotels .choose_button');
     const linksAllRestaurants = document.querySelector('.restaurants .choose_button');
 
-
-    console.log(photoTouristAttractions)
-
     countriesForChoice.forEach(el => {
         el.addEventListener('click', () => {
             let CountryName = el.innerText;
-            console.log(CountryName);
             country.innerText = CountryName;
             let URLTouristAttractions = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/?country__name=' + CountryName + '&limit=3';
             let URLHotels = location.protocol + '//' + location.host + '/api/v1/hotels/?country__name=' + CountryName + '&limit=3';
             let URLRestaurants = location.protocol + '//' + location.host + '/api/v1/restaurants/?country__name=' + CountryName + '&limit=3';
-
-
             linksAllTouristAttractions.href = '/tourist-attractions/?country__name=' + CountryName;
             linksAllHotels.href = '/hotels/?country__name=' + CountryName;
             linksAllRestaurants.href = '/restaurants/?country__name=' + CountryName
@@ -55,6 +47,7 @@ window.addEventListener("load", function () {
                     linksTouristAttractions[i * 2 + 1].href = '/tourist-attractions/' + data.results[i].id;
                 }
             });
+
             sendRequest(URLHotels).then(data => {
                 for (let i = 0; i < 3; i++) {
                     nameHotels[i].innerText = data.results[i].name;
@@ -76,7 +69,6 @@ window.addEventListener("load", function () {
                     linksRestaurants[i * 2 + 1].href = '/restaurants/' + data.results[i].id;
                 }
             });
-
         initRatings("./rating.js");
         });
     });

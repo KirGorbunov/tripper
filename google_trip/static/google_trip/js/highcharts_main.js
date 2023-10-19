@@ -15,7 +15,6 @@ window.addEventListener("load", function () {
     const hotels_button = document.querySelector('.index_img.hotels_index_image');
     const restaurants_attraction_button = document.querySelector('.index_img.restaurants_index_image');
 
-
     tourist_attraction_button.addEventListener('click', () => {
         let countryNameObj = document.querySelector('.country-name h2');
         if (countryNameObj) {
@@ -35,6 +34,7 @@ window.addEventListener("load", function () {
         hotels_button.classList.remove('active');
         restaurants_attraction_button.classList.remove('active');
     });
+
     hotels_button.addEventListener('click', () => {
         let countryNameObj = document.querySelector('.country-name h2');
         if (countryNameObj) {
@@ -79,7 +79,6 @@ window.addEventListener("load", function () {
 async function sendRequest(type, CounterQuery) {
     const queryString = window.location.search;
     let URL = location.protocol + '//' + location.host + '/api/v1/' + type + '/?' + CounterQuery + '&rating__gte=4.0&limit=1000&' + queryString.slice(1);
-
     const response = await fetch(URL);
     const data = await response.json();
     return data;
@@ -90,8 +89,6 @@ function constructChart(type, CounterQuery) {
         let used = [];
         let newData = [];
         let activeType = document.querySelector('.places .active span').innerText.toLowerCase().replace(" ", "-");
-
-
         for (let i = 0; i < data.results.length; i++) {
             let countryCurrentId = data.results[i].country_name
             if (!used.includes(countryCurrentId)) {
@@ -102,11 +99,8 @@ function constructChart(type, CounterQuery) {
                     data: obj_data
                 };
                 newData.push(obj);
-            }
-            ;
-        }
-        ;
-
+            };
+        };
         Highcharts.chart('container', {
             chart: {
                 type: 'scatter',
@@ -154,7 +148,6 @@ function constructChart(type, CounterQuery) {
         })
     })
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     constructChart('tourist-attractions', '');

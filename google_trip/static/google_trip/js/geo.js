@@ -6,7 +6,6 @@ window.addEventListener("load", function () {
     const city = document.querySelector('.address-show .city-name');
     const town = document.querySelector('.address-show .town-name');
     const village = document.querySelector('.address-show .village-name');
-
     const nameTouristAttractions = document.querySelectorAll('.tourist-attractions .name a');
     const nameHotels = document.querySelectorAll('.hotels .name a');
     const nameRestaurants = document.querySelectorAll('.restaurants .name a');
@@ -19,37 +18,23 @@ window.addEventListener("load", function () {
     const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating__value');
     const ratingHotels = document.querySelectorAll('.hotels .rating__value');
     const ratingRestaurants = document.querySelectorAll('.restaurants .rating__value');
-
     const linksTouristAttractions = document.querySelectorAll('.tourist-attractions a');
     const linksHotels = document.querySelectorAll('.hotels a');
     const linksRestaurants = document.querySelectorAll('.restaurants a');
-
-
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const currentPath = window.location.pathname;
-
     const countryName = urlParams.get('country__name');
-
     const stateName = urlParams.get('state__name');
-
     const regionName = urlParams.get('region__name');
-
     const countyName = urlParams.get('county__name');
-
     const cityName = urlParams.get('city__name');
-    console.log(cityName)
-
     const townName = urlParams.get('town__name');
-
     const villageName = urlParams.get('village__name');
-
     let URLTouristAttractions = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/' + queryString + '&limit=3';
     let URLHotels = location.protocol + '//' + location.host + '/api/v1/hotels/' + queryString + '&limit=3';
     let URLRestaurants = location.protocol + '//' + location.host +  '/api/v1/restaurants/' + queryString + '&limit=3';
-
     let geoHref = currentPath
-
     if (countryName) {
         country.innerText = countryName;
         geoHref += '?country__name=' + countryName;
@@ -93,7 +78,6 @@ window.addEventListener("load", function () {
     }
     ;
 
-
     async function sendRequest(URL) {
         const response = await fetch(URL);
         const data = await response.json();
@@ -110,6 +94,7 @@ window.addEventListener("load", function () {
             linksTouristAttractions[i * 2 + 1].href = '/tourist-attractions/' + data.results[i].id;
         }
     });
+
     sendRequest(URLHotels).then(data => {
         for (let i = 0; i < 3; i++) {
             nameHotels[i].innerText = data.results[i].name;
@@ -131,5 +116,6 @@ window.addEventListener("load", function () {
             linksRestaurants[i * 2 + 1].href = '/restaurants/' + data.results[i].id;
         }
     });
+
     initRatings("./rating.js");
 });

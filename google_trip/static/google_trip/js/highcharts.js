@@ -12,10 +12,7 @@ function getURL(countryName) {
 }
 
 currentId = parseInt(window.location.pathname.match(/\d+/));
-console.log(currentId)
-
 let URL = getURL(countryName)
-console.log(URL)
 
 async function sendRequest(URL) {
     const response = await fetch(URL);
@@ -26,10 +23,7 @@ async function sendRequest(URL) {
 sendRequest(URL).then((data) => {
     let result = data.filter((item) => item.id === currentId);
     let currentData = result[0];
-
     jsonData = data.filter((item) => item.id != currentId);
-    console.log(jsonData)
-
     Highcharts.chart('container', {
         chart: {
             type: 'scatter',
