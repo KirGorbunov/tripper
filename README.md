@@ -47,20 +47,14 @@
     <img src="media/common/screenshot.png" alt="Screenshot">
 </a>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+I really love independent travel! And when planning each trip, I am faced with the need to choose the places I want to visit. But how to choose the best and not make a mistake? And how can you avoid spending too much time on it?
+After spending a lot of time studying various sites and maps for travelers, I came to the conclusion that the most places with the largest number of reviews for them are stored on Google maps. But using them for planning and choosing places to visit is not convenient.
+Therefore, I created this site to help me with the choice and at the same time I do not have to spend a lot of time studying Google maps.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+* All information for selection is presented on the graph
+* No need to waste time, the best is already before your eyes
+* You won't miss anything worth visiting :smile:
 
 ### Built With
 
