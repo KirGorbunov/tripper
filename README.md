@@ -54,7 +54,8 @@ Therefore, I created this site to help me with the choice and at the same time I
 Here's why:
 * All information for selection is presented on the graph
 * No need to waste time, the best is already before your eyes
-* You won't miss anything worth visiting :smile:
+* You can also use this to select hotels and restaurants:smile:
+* You won't miss anything worth visiting
 
 ### Built With
 
