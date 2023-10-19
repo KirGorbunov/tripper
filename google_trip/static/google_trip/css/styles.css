@@ -112,7 +112,6 @@ h3 {
 
 .country-name h2 {
     font-weight: 600;
-    margin-bottom: 0px;
     border-bottom: 1px solid rgb(224, 224, 224);
     margin: 0 30% 0 30%;
 }
@@ -341,13 +340,11 @@ input {
 .choose_button {
     margin-top: 10px;
     margin-left: 0;
-    /*width: 50px;*/
     height: 30px;
 }
 
 .info {
     display: flex;
-    /*margin-left: 30px;*/
     justify-content: center;
     flex-direction: column;
 }
@@ -409,25 +406,3 @@ input {
 .index_img.active {
     background: #b7b6b6;
 }
-
-/*.highcharts-figure {*/
-/*    min-width: 1440px;*/
-/*    min-height: 3280px;*/
-/*}*/
-
-
-/*     FOR GOOGLE MAPS      */
-
-/*#map {*/
-/*  height: 100%;*/
-/*}*/
-
-/*!**/
-/* * Optional: Makes the sample page fill the window.*/
-/* *!*/
-/*html,*/
-/*body {*/
-/*  height: 100%;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
