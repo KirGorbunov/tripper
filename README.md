@@ -63,12 +63,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+Just select a country and look at the graph. All the most interesting things are located in the upper right part of the graph.
 
 <!-- CONTACT -->
 ## Contact
@@ -80,32 +75,6 @@ Project Link: [https://github.com/KirGorbunov/tripper](https://github.com/KirGor
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS -->
-
-[//]: # (<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->)
-
-[//]: # ([contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge)
-
-[//]: # ([contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors)
-
-[//]: # ([forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge)
-
-[//]: # ([forks-url]: https://github.com/othneildrew/Best-README-Template/network/members)
-
-[//]: # ([stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge)
-
-[//]: # ([stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers)
-
-[//]: # ([issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge)
-
-[//]: # ([issues-url]: https://github.com/othneildrew/Best-README-Template/issues)
-
-[//]: # ([license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge)
-
-[//]: # ([license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt)
-
-[//]: # ([linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555)
-
-[//]: # ([linkedin-url]: https://linkedin.com/in/othneildrew)
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
