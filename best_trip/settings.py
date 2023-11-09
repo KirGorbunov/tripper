@@ -16,18 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7-jd8@1_jet24qyiv5f8vnr4ew+)h5^uhg1n)sk_rizfj@wvwr'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -76,16 +64,7 @@ WSGI_APPLICATION = 'best_trip.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'google_trip_db',
-        'USER': 'ksgorbunov',
-        'PASSWORD': '21Russia!',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
+
 
 
 # Password validation
@@ -143,3 +122,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    from .prod_settings import *

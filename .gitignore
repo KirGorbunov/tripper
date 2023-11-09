@@ -7,6 +7,9 @@ db.sqlite3
 media/*
 !media/common/
 
+
+prod_settings.py
+
 # Backup files # 
 *.bak 
 
