@@ -145,7 +145,7 @@ h2 {
 }
 
 .country-navigation {
-    width: 220px;
+    width: 14%;
     height: 975px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
@@ -179,13 +179,12 @@ input {
 }
 
 .country-show {
-    width: 1350px;
+    width: 85%;
     height: 975px;
     border: 1px solid rgb(224, 224, 224);
 }
 
 .country-category-show {
-    width: 1350px;
     display: flex;
     justify-content: space-between;
 }
@@ -197,9 +196,13 @@ input {
     align-items: center;
 }
 
+.one-place {
+    width: 440px;
+}
+
 .photo {
     height: 250px;
-    width: 400px;
+    width: 100%;
     margin: 0 20px;
 }
 

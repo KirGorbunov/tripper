@@ -179,7 +179,7 @@ h3 {
 }
 
 .country-navigation {
-    width: 220px;
+    width: 14%;
     height: 1050px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
@@ -223,17 +223,17 @@ input {
 }
 
 .country-show {
-    width: 1350px;
+    width: 85%;
     border: 1px solid rgb(224, 224, 224);
 }
 
 .country-category-show {
-    width: 1350px;
     display: flex;
     justify-content: space-between;
 }
 
 .one-place {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -243,7 +243,7 @@ input {
 
 .photo {
     height: 250px;
-    width: 400px;
+    width: 100%;
     margin: 0 20px 5px;
 }
 
@@ -261,6 +261,7 @@ input {
 }
 
 .country-one-category {
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -310,7 +311,7 @@ input {
     align-items: flex-end;
     font-size: 35px;
     line-height: 0.75;
-    width: 400px;
+    width: 100%;
     height: 20px;
 }
 
