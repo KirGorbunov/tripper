@@ -28,7 +28,7 @@ sendRequest(URL).then((data) => {
         chart: {
             type: 'scatter',
             zoomType: 'xy',
-            width: '1440',
+            // width: '1440',
             height: '600',
         },
         xAxis: {

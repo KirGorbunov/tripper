@@ -31,7 +31,7 @@ html, body {
 
 
 .header {
-    width: 100vw;
+    width: 100%;
     background-color: #000000;
     color: white;
     text-align: center;
@@ -179,7 +179,9 @@ h3 {
 }
 
 .country-navigation {
+    margin-left: 25px;
     width: 14%;
+    min-width: 175px;
     height: 1050px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
@@ -191,7 +193,6 @@ h3 {
 
 .country-input {
     position: absolute;
-    width: 180px;
     height: 50px;
     border-bottom: 1px solid rgb(224, 224, 224);
 }
@@ -229,7 +230,7 @@ input {
 
 .country-category-show {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .one-place {
@@ -244,6 +245,7 @@ input {
 .photo {
     height: 250px;
     width: 100%;
+    max-width: 450px;
     margin: 0 20px 5px;
 }
 
@@ -312,6 +314,8 @@ input {
     font-size: 35px;
     line-height: 0.75;
     width: 100%;
+    min-width: 240px;
+    max-width: 500px;
     height: 20px;
 }
 
@@ -397,6 +401,8 @@ input {
 .main_information {
     display: flex;
     flex-direction: row;
+    min-width: 600px;
+    justify-content: space-between;
 }
 
 #map {
@@ -406,4 +412,15 @@ input {
 
 .index_img.active {
     background: #b7b6b6;
+}
+
+.detail-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highcharts-figure {
+    width: 95%;
 }
