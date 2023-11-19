@@ -176,6 +176,7 @@ h3 {
 .show-list {
     display: flex;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .country-navigation {
@@ -278,7 +279,7 @@ input {
 .category-show {
     display: flex;
     justify-content: left;
-    margin: 30px 0;
+    margin: 30px 10px 30px 0;
 }
 
 .category-show a {
@@ -423,4 +424,18 @@ input {
 
 .highcharts-figure {
     width: 95%;
+}
+
+@media (max-width: 1024px) {
+    .country-one-category.hotels {
+        display: none;
+    }
+
+    .country-one-category.tourist-attractions {
+        width: 45%;
+    }
+
+        .country-one-category.restaurants {
+        width: 45%;
+    }
 }
