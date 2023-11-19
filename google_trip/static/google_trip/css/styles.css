@@ -439,3 +439,31 @@ input {
         width: 45%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .country-one-category.restaurants {
+        display: none;
+    }
+
+    .country-one-category.tourist-attractions {
+        width: 95%;
+    }
+
+    .category-show .photo {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .country-one-category.restaurants {
+        display: none;
+    }
+
+    .country-one-category.tourist-attractions {
+        width: 95%;
+    }
+
+    .category-show .photo {
+        height: 150px;
+    }
+}
