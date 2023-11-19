@@ -276,6 +276,7 @@ input {
     color: black;
 }
 
+
 .category-show {
     display: flex;
     justify-content: left;
@@ -426,6 +427,11 @@ input {
     width: 95%;
 }
 
+#map {
+    width: 600px;
+    height: 400px;
+}
+
 @media (max-width: 1024px) {
     .country-one-category.hotels {
         display: none;
@@ -452,18 +458,46 @@ input {
     .category-show .photo {
         height: 150px;
     }
+
+    #map {
+        width: 90%;
+    }
+
+    .main_information {
+        min-width: 400px;
+    }
 }
 
-@media screen and (max-width: 768px) {
-    .country-one-category.restaurants {
+@media screen and (max-width: 480px) {
+    .category-show .photo {
+        width: 90%;
+    }
+
+    .category-show .place-information {
+        padding-left: 20px;
+    }
+
+    .number_of_review {
         display: none;
     }
 
-    .country-one-category.tourist-attractions {
-        width: 95%;
+    .rating {
+        display: none;
     }
 
-    .category-show .photo {
-        height: 150px;
+    .info {
+        display: none;
+    }
+
+    .category-show {
+        flex-direction: column-reverse;
+    }
+
+    .main_information {
+        min-width: 0;
+    }
+
+    #map {
+        width: 90%;
     }
 }
