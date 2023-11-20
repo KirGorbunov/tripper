@@ -185,6 +185,7 @@ h3 {
     margin-left: 25px;
     width: 14%;
     min-width: 175px;
+    max-width: 200px;
     height: 1050px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
@@ -451,7 +452,7 @@ input {
         width: 45%;
     }
 
-        .country-one-category.restaurants {
+    .country-one-category.restaurants {
         width: 45%;
     }
 }
@@ -513,5 +514,19 @@ input {
 
     .main_information .info {
         padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .country-show {
+        display: none;
+    }
+
+    .country-navigation {
+        width: 80%;
+    }
+
+    .show-list {
+        justify-content: center;
     }
 }
