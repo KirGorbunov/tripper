@@ -27,6 +27,9 @@ html, body {
     background-color: white;
     font-size: 14px;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
@@ -135,14 +138,13 @@ h3 {
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .index_img {
     align-self: center;
     height: 100px;
     width: 100px;
-    margin-left: 50px;
     text-align: center;
 }
 
@@ -403,8 +405,16 @@ input {
 .main_information {
     display: flex;
     flex-direction: row;
-    min-width: 600px;
+    min-width: 400px;
     justify-content: space-between;
+}
+
+.main_information .info {
+    padding-left: 20px;
+}
+
+.main_information .photo {
+    width: inherit;
 }
 
 #map {
@@ -423,13 +433,13 @@ input {
     align-items: center;
 }
 
-.highcharts-figure {
-    width: 95%;
-}
-
 #map {
     width: 600px;
     height: 400px;
+}
+
+.highcharts-figure {
+    width: 90%;
 }
 
 @media (max-width: 1024px) {
@@ -468,7 +478,7 @@ input {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 660px) {
     .category-show .photo {
         width: 90%;
     }
@@ -477,15 +487,15 @@ input {
         padding-left: 20px;
     }
 
-    .number_of_review {
+    .category-show .number_of_review {
         display: none;
     }
 
-    .rating {
+    .category-show .rating {
         display: none;
     }
 
-    .info {
+    .category-show .info {
         display: none;
     }
 
@@ -499,5 +509,9 @@ input {
 
     #map {
         width: 90%;
+    }
+
+    .main_information .info {
+        padding-left: 0;
     }
 }
