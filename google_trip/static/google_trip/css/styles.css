@@ -199,6 +199,7 @@ h3 {
     position: absolute;
     height: 50px;
     border-bottom: 1px solid rgb(224, 224, 224);
+    width: 170px;
 }
 
 .search {
@@ -440,7 +441,8 @@ input {
 }
 
 .highcharts-figure {
-    width: 90%;
+    width: 100%;
+    margin: 0 0 0 0;
 }
 
 @media (max-width: 1024px) {
@@ -518,15 +520,34 @@ input {
 }
 
 @media screen and (max-width: 480px) {
-    .country-show {
+    .index_show {
         display: none;
     }
 
     .country-navigation {
+        max-width: 190px;
         width: 80%;
+        height: 500px;
     }
 
     .show-list {
         justify-content: center;
+    }
+
+    .navigation {
+        padding-left: 0;
+    }
+
+    .navigation li {
+        width: 100px;
+    }
+
+    .category_list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .country-show-category {
+        margin-top: 20px;
     }
 }
