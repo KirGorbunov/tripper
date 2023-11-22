@@ -24,15 +24,13 @@
                 </div>
                 {% for item in tourist_attractions %}
                 <div class="category-show">
-                    {% if item.photo %}
-                    <div class="photo">
+                    <div class="photo"><a href={% url 'view_attraction' item.pk %}>
+                        {% if item.photo %}
                         <img src="{{ item.photo.url }}" alt="">
-                    </div>
-                    {% else %}
-                    <div class="photo">
+                        {% else %}
                         <img src="/media/common/no_photo.jpg">
-                    </div>
-                    {% endif %}
+                        {% endif %}
+                    </a></div>
                     <div class="place-information">
                         <div class="name">
                             <a href={% url 'view_attraction' item.pk %}>{{ item.name|safe }}</a>
