@@ -79,6 +79,7 @@ class TouristAttractions(ListView):
     model = TouristAttraction
     context_object_name = 'tourist_attractions'
     paginate_by = 10
+    ordering = '-number_of_review'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -97,6 +98,7 @@ class Restaurants(ListView):
     model = Restaurant
     context_object_name = 'restaurants'
     paginate_by = 10
+    ordering = '-number_of_review'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -115,6 +117,7 @@ class Hotels(ListView):
     model = Hotel
     context_object_name = 'hotels'
     paginate_by = 10
+    ordering = '-number_of_review'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

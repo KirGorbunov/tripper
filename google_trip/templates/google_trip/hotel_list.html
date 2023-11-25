@@ -21,7 +21,13 @@
             <script src={% static "google_trip/js/country_navigate.js" %}></script>
             <div class="country-show country-show-category">
                 <div class="country-name">
-                    <h2>World</h2>
+                    <h2>
+                        {% if request.GET.country__name %}
+                        {{ request.GET.country__name }}
+                        {% else %}
+                        World
+                        {% endif %}
+                    </h2>
                 </div>
                 {% for item in hotels %}
                 <div class="category-show">
