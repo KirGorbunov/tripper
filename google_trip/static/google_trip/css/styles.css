@@ -187,7 +187,7 @@ h3 {
     width: 14%;
     min-width: 175px;
     max-width: 200px;
-    height: 1050px;
+    height: 1134px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
     display: flex;
@@ -237,6 +237,7 @@ input {
 .country-category-show {
     display: flex;
     justify-content: space-around;
+    padding-bottom: 10px;
 }
 
 .one-place {
