@@ -4,7 +4,12 @@
 
 a {
     text-decoration: none;
+    color: black;
     background-color: transparent;
+}
+
+.info a:hover {
+    text-decoration: underline;
 }
 
 ul {
@@ -22,11 +27,14 @@ html, body {
     background-color: white;
     font-size: 14px;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
 .header {
-    width: 100vw;
+    width: 100%;
     background-color: #000000;
     color: white;
     text-align: center;
@@ -61,15 +69,19 @@ html, body {
 
 .navigation li {
     display: inline-block;
-    padding-right: 1.5rem;
     letter-spacing: 0.13em;
     font-weight: 600;
-    width: 220px;
-    height: 220px;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.navigation li a {
+    display: block;
 }
 
 .navigation li:hover {
-    background-color: lightgreen;
+    background-color: rgb(31, 31, 31);
 }
 
 .container {
@@ -78,7 +90,7 @@ html, body {
 }
 
 .intro {
-    margin: 60px auto;
+    margin: 0 auto;
     border-width: 1px 0px;
     border-style: solid;
     border-color: rgb(224, 224, 224);
@@ -94,6 +106,19 @@ h2 {
     font-weight: normal;
 }
 
+h3 {
+    text-align: center;
+    align-self: center;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 15px;
+}
+
+.country-name h2 {
+    font-weight: 600;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 0 30% 0 30%;
+}
+
 .base_button {
     align-self: center;
     margin-left: 2rem;
@@ -105,19 +130,31 @@ h2 {
     height: 48px
 }
 
+.base_button:hover {
+    background-color: rgb(31, 31, 31);
+}
+
 .places {
+    margin: 50px auto;
+    max-width: 600px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .index_img {
     align-self: center;
-    height: 830px;
-    width: 520px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.index_img:hover {
+    color: blue;
 }
 
 .index_img img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover;
     object-position: 0 0;
@@ -142,11 +179,15 @@ h2 {
 .show-list {
     display: flex;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .country-navigation {
+    margin-left: 25px;
     width: 14%;
-    height: 975px;
+    min-width: 175px;
+    max-width: 200px;
+    height: 1134px;
     overflow: auto;
     border: 1px solid rgb(224, 224, 224);
     display: flex;
@@ -154,11 +195,21 @@ h2 {
     align-items: center;
 }
 
+
 .country-input {
-    width: 180px;
+    position: absolute;
     height: 50px;
     border-bottom: 1px solid rgb(224, 224, 224);
+    width: 170px;
 }
+
+.search {
+    margin-top: 55px;
+}
+
+.search li:hover {
+    color: purple;
+ }
 
 input {
     border: medium none;
@@ -180,30 +231,29 @@ input {
 
 .country-show {
     width: 85%;
-    height: 975px;
     border: 1px solid rgb(224, 224, 224);
 }
 
 .country-category-show {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding-bottom: 10px;
 }
 
-.country-one-category {
+.one-place {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-}
-
-.one-place {
-    width: 440px;
+    padding-top: 15px;
 }
 
 .photo {
     height: 250px;
     width: 100%;
-    margin: 0 20px;
+    max-width: 450px;
+    margin: 0 20px 5px;
 }
 
 .photo img {
@@ -213,18 +263,30 @@ input {
     object-position: 0 0;
 }
 
+.photo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.country-one-category {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .country-one-category a {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     align-items: center;
     color: black;
 }
 
+
 .category-show {
     display: flex;
     justify-content: left;
-    margin: 30px 0;
+    margin: 30px 10px 30px 0;
 }
 
 .category-show a {
@@ -235,24 +297,259 @@ input {
     cursor: pointer;
 }
 
-/*.highcharts-figure {*/
-/*    min-width: 1440px;*/
-/*    min-height: 3280px;*/
-/*}*/
+.name-detail {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
 
+.name a {
+    padding-bottom: 0.75rem;
+    font-size: 16px;
+    font-weight: 500;
+}
 
-/*     FOR GOOGLE MAPS      */
+.name a:hover {
+    text-decoration: underline;
+}
 
-/*#map {*/
-/*  height: 100%;*/
-/*}*/
+.search li.hide {
+    display: none;
+}
 
-/*!**/
-/* * Optional: Makes the sample page fill the window.*/
-/* *!*/
-/*html,*/
-/*body {*/
-/*  height: 100%;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
+.rating {
+    display: flex;
+    align-items: flex-end;
+    font-size: 35px;
+    line-height: 0.75;
+    width: 100%;
+    min-width: 240px;
+    max-width: 500px;
+    height: 20px;
+}
+
+.rating__item {
+    color: black;
+    font-size: 28px;
+}
+
+.rating__value {
+    font-size: 50%;
+    line-height: 1;
+    padding: 0 0 0 10px;
+}
+
+.rating__body {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+}
+
+.rating__active {
+  width: 50%;
+  background-color: black;
+  height: 20px;
+}
+
+.choose_button {
+    margin-top: 10px;
+    margin-left: 0;
+    height: 30px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info a {
+    display: inline;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.step-links {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.current {
+    background-color: gray;
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.latitude {
+    visibility: hidden;
+}
+
+.longitude {
+    visibility: hidden;
+}
+
+.main_information {
+    display: flex;
+    flex-direction: row;
+    min-width: 400px;
+    justify-content: space-between;
+}
+
+.main_information .info {
+    padding-left: 20px;
+}
+
+.main_information .photo {
+    width: inherit;
+}
+
+#map {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.index_img.active {
+    background: #b7b6b6;
+}
+
+.detail-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#map {
+    width: 600px;
+    height: 400px;
+}
+
+.highcharts-figure {
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+@media (max-width: 1024px) {
+    .country-one-category.hotels {
+        display: none;
+    }
+
+    .country-one-category.tourist-attractions {
+        width: 45%;
+    }
+
+    .country-one-category.restaurants {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .country-one-category.restaurants {
+        display: none;
+    }
+
+    .country-one-category.tourist-attractions {
+        width: 95%;
+    }
+
+    .category-show .photo {
+        height: 150px;
+    }
+
+    #map {
+        width: 90%;
+    }
+
+    .main_information {
+        min-width: 400px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .category-show .photo {
+        width: 90%;
+    }
+
+    .category-show .place-information {
+        padding-left: 20px;
+    }
+
+    .category-show .number_of_review {
+        display: none;
+    }
+
+    .category-show .rating {
+        display: none;
+    }
+
+    .category-show .info {
+        display: none;
+    }
+
+    .category-show {
+        flex-direction: column-reverse;
+    }
+
+    .main_information {
+        min-width: 0;
+    }
+
+    #map {
+        width: 90%;
+    }
+
+    .main_information .info {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .index_show {
+        display: none;
+    }
+
+    .country-navigation {
+        max-width: 190px;
+        width: 80%;
+        height: 500px;
+    }
+
+    .show-list {
+        justify-content: center;
+    }
+
+    .navigation {
+        padding-left: 0;
+    }
+
+    .navigation li {
+        width: 100px;
+    }
+
+    .category_list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .country-show-category {
+        margin-top: 20px;
+    }
+}

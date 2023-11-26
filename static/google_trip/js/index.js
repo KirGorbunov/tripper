@@ -10,61 +10,66 @@ window.addEventListener("load", function () {
     const numberOfReviewTouristAttractions = document.querySelectorAll('.tourist-attractions .number_of_review');
     const numberOfReviewHotels = document.querySelectorAll('.hotels .number_of_review');
     const numberOfReviewRestaurants = document.querySelectorAll('.restaurants .number_of_review');
-    const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating');
-    const ratingHotels = document.querySelectorAll('.hotels .rating');
-    const ratingRestaurants = document.querySelectorAll('.restaurants .rating');
-
-
-    console.log(photoTouristAttractions)
+    const ratingTouristAttractions = document.querySelectorAll('.tourist-attractions .rating__value');
+    const ratingHotels = document.querySelectorAll('.hotels .rating__value');
+    const ratingRestaurants = document.querySelectorAll('.restaurants .rating__value');
+    const linksTouristAttractions = document.querySelectorAll('.tourist-attractions a');
+    const linksHotels = document.querySelectorAll('.hotels a');
+    const linksRestaurants = document.querySelectorAll('.restaurants a');
+    const linksAllTouristAttractions = document.querySelector('.tourist-attractions .choose_button');
+    const linksAllHotels = document.querySelector('.hotels .choose_button');
+    const linksAllRestaurants = document.querySelector('.restaurants .choose_button');
 
     countriesForChoice.forEach(el => {
         el.addEventListener('click', () => {
             let CountryName = el.innerText;
-            console.log(CountryName);
             country.innerText = CountryName;
-            let URLTouristAttractions = 'http://127.0.0.1:8001/api/v1/tourist-attractions/?country__name=' + CountryName + '&limit=3';
-            let URLHotels = 'http://127.0.0.1:8001/api/v1/hotels/?country__name=' + CountryName+'&limit=3';
-            let URLRestaurants = 'http://127.0.0.1:8001/api/v1/restaurants/?country__name=' + CountryName+'&limit=3';
+            let URLTouristAttractions = location.protocol + '//' + location.host + '/api/v1/tourist-attractions/?country__name=' + CountryName + '&limit=3';
+            let URLHotels = location.protocol + '//' + location.host + '/api/v1/hotels/?country__name=' + CountryName + '&limit=3';
+            let URLRestaurants = location.protocol + '//' + location.host + '/api/v1/restaurants/?country__name=' + CountryName + '&limit=3';
+            linksAllTouristAttractions.href = '/tourist-attractions/?country__name=' + CountryName;
+            linksAllHotels.href = '/hotels/?country__name=' + CountryName;
+            linksAllRestaurants.href = '/restaurants/?country__name=' + CountryName
 
-            function xhrConnect(method, URL, async = false) {
-                let xhr = new XMLHttpRequest();
-                xhr.open(method, URL, async);
-                try {
-                    xhr.send();
-                    if (xhr.status != 200) {
-                        alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-                    } else {
-                        var jsonData = JSON.parse(xhr.response);
-                        console.log(jsonData);
-                        return jsonData;
-                    }
-                } catch (err) { // для отлова ошибок используем конструкцию try...catch вместо onerror
-                    alert("Запрос не удался");
+            async function sendRequest(URL) {
+                const response = await fetch(URL);
+                const data = await response.json();
+                return data;
+            }
+
+            sendRequest(URLTouristAttractions).then(data => {
+                for (let i = 0; i < 3; i++) {
+                    nameTouristAttractions[i].innerText = data.results[i].name;
+                    photoTouristAttractions[i].src = data.results[i].photo;
+                    numberOfReviewTouristAttractions[i].innerText = data.results[i].y + ' reviews';
+                    ratingTouristAttractions[i].innerText = data.results[i].x;
+                    linksTouristAttractions[i * 2].href = '/tourist-attractions/' + data.results[i].id;
+                    linksTouristAttractions[i * 2 + 1].href = '/tourist-attractions/' + data.results[i].id;
                 }
-            }
+            });
 
-            let TouristAttractionsJSON = xhrConnect('GET', URLTouristAttractions, false);
-            let HotelsJSON = xhrConnect('GET', URLHotels, false);
-            let RestaurantsJSON = xhrConnect('GET', URLRestaurants, false);
-            console.log(TouristAttractionsJSON);
+            sendRequest(URLHotels).then(data => {
+                for (let i = 0; i < 3; i++) {
+                    nameHotels[i].innerText = data.results[i].name;
+                    photoHotels[i].src = data.results[i].photo;
+                    numberOfReviewHotels[i].innerText = data.results[i].y + ' reviews';
+                    ratingHotels[i].innerText = data.results[i].x;
+                    linksHotels[i * 2].href = '/hotels/' + data.results[i].id;
+                    linksHotels[i * 2 + 1].href = '/hotels/' + data.results[i].id;
+                }
+            });
 
-            for (let i = 0; i < 3; i++) {
-                nameTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].name;
-                nameTouristAttractions[i].href = '/tourist-attractions/'+TouristAttractionsJSON.results[i].id;
-                nameHotels[i].innerText = HotelsJSON.results[i].name;
-                nameHotels[i].href = '/hotels/'+HotelsJSON.results[i].id;
-                nameRestaurants[i].innerText = RestaurantsJSON.results[i].name;
-                nameRestaurants[i].href = '/restaurants/'+RestaurantsJSON.results[i].id;
-                photoTouristAttractions[i].src = TouristAttractionsJSON.results[i].photo;
-                photoHotels[i].src = HotelsJSON.results[i].photo;
-                photoRestaurants[i].src = RestaurantsJSON.results[i].photo;
-                numberOfReviewTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].y;
-                numberOfReviewHotels[i].innerText = HotelsJSON.results[i].y;
-                numberOfReviewRestaurants[i].innerText = RestaurantsJSON.results[i].y;
-                ratingTouristAttractions[i].innerText = TouristAttractionsJSON.results[i].x;
-                ratingHotels[i].innerText = HotelsJSON.results[i].x;
-                ratingRestaurants[i].innerText = RestaurantsJSON.results[i].x;
-            }
+            sendRequest(URLRestaurants).then(data => {
+                for (let i = 0; i < 3; i++) {
+                    nameRestaurants[i].innerText = data.results[i].name;
+                    photoRestaurants[i].src = data.results[i].photo;
+                    numberOfReviewRestaurants[i].innerText = data.results[i].y + ' reviews';
+                    ratingRestaurants[i].innerText = data.results[i].x;
+                    linksRestaurants[i * 2].href = '/restaurants/' + data.results[i].id;
+                    linksRestaurants[i * 2 + 1].href = '/restaurants/' + data.results[i].id;
+                }
+            });
+        initRatings("./rating.js");
         });
     });
-})
+});
