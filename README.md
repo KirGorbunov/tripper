@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="http://62.217.181.163/">
+  <a href="http://tripper-stats.ru/">
     <img src="media/common/logo.png" alt="Logo">
   </a>
 
@@ -32,7 +32,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<a href="http://62.217.181.163/">
+<a href="http://tripper-stats.ru/">
     <img src="media/common/screenshot.png" alt="Screenshot">
 </a>
 
@@ -70,7 +70,7 @@ Just select a country and look at the graph. All the most interesting things are
 
 Kirill Gorbunov kirgorbunov@gmail.com
 
-Project Link: [TRIPPER](http://62.217.181.163/)
+Project Link: [TRIPPER](http://tripper-stats.ru/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
