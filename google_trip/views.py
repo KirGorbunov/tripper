@@ -6,6 +6,7 @@ from .serializers import TouristAttractionSerializer, \
     HotelSerializer
 from django_filters import rest_framework as filters
 from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 from django.utils.decorators import method_decorator
 
 
@@ -163,6 +164,12 @@ class APIRestaurantsList(generics.ListCreateAPIView):
 
 
 class APIHotelsList(generics.ListCreateAPIView):
-    queryset = Hotel.objects.all().order_by('-number_of_review')
+    if cache.get('hotels_API'):
+        print('data FROM CACHE')
+        queryset = cache.get('hotels_API')
+    else:
+        queryset = Hotel.objects.all().order_by('-number_of_review')
+        cache.set('hotels_API', queryset, 10)
+        print('data FROM DB')
     serializer_class = HotelSerializer
     filterset_class = HotelFilter
