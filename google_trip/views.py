@@ -5,6 +5,8 @@ from .serializers import TouristAttractionSerializer, \
     RestaurantSerializer, \
     HotelSerializer
 from django_filters import rest_framework as filters
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
 
 class TouristAttractionsFilter(filters.FilterSet):
@@ -52,6 +54,7 @@ class RestaurantFilter(filters.FilterSet):
                   'rating']
 
 
+@method_decorator(cache_page(86400), name='home_cache')
 class Home(ListView):
     model = Country
     template_name = 'google_trip/index.html'
@@ -75,6 +78,7 @@ class Geo(ListView):
     context_object_name = 'countries'
 
 
+@method_decorator(cache_page(86400), name='tourist_attractions_cache')
 class TouristAttractions(ListView):
     model = TouristAttraction
     context_object_name = 'tourist_attractions'
@@ -94,6 +98,7 @@ class TouristAttractions(ListView):
         return qs.filter(country__name=country)
 
 
+@method_decorator(cache_page(86400), name='restaurants_cache')
 class Restaurants(ListView):
     model = Restaurant
     context_object_name = 'restaurants'
@@ -113,6 +118,7 @@ class Restaurants(ListView):
         return qs.filter(country__name=country)
 
 
+@method_decorator(cache_page(86400), name='hotels_cache')
 class Hotels(ListView):
     model = Hotel
     context_object_name = 'hotels'
