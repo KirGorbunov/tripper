@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'google_trip.apps.GoogleTripConfig',
     'rest_framework',
     'django_filters',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'best_trip.urls'
@@ -130,6 +132,12 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379",
     }
 }
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 try:
     from .local_settings import *

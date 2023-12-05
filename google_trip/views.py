@@ -151,25 +151,22 @@ class ViewHotel(DetailView):
     model = Hotel
 
 
+@method_decorator(cache_page(3600), name='dispatch')
 class APITouristAttractionsList(generics.ListCreateAPIView):
     queryset = TouristAttraction.objects.all().order_by('-number_of_review')
     serializer_class = TouristAttractionSerializer
     filterset_class = TouristAttractionsFilter
 
 
+@method_decorator(cache_page(3600), name='dispatch')
 class APIRestaurantsList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.all().order_by('-number_of_review')
     serializer_class = RestaurantSerializer
     filterset_class = RestaurantFilter
 
 
+@method_decorator(cache_page(3600), name='dispatch')
 class APIHotelsList(generics.ListCreateAPIView):
-    if cache.get('hotels_API'):
-        print('data FROM CACHE')
-        queryset = cache.get('hotels_API')
-    else:
-        queryset = Hotel.objects.all().order_by('-number_of_review')
-        cache.set('hotels_API', queryset, 10)
-        print('data FROM DB')
+    queryset = Hotel.objects.all().order_by('-number_of_review')
     serializer_class = HotelSerializer
     filterset_class = HotelFilter
